@@ -27,10 +27,14 @@ function seapapers_feature_apachesolr_environments() {
   $environment = new stdClass();
   $environment->api_version = 1;
   $environment->env_id = 'solr';
-  $environment->name = 'Apache Solr server';
+  $environment->name = 'SEAPapers Apache Solr Server';
   $environment->url = 'http://seapapers.solr.library.cornell.edu/solr';
   $environment->service_class = '';
-  $environment->conf = array();
+  $environment->conf = array(
+    'apachesolr_direct_commit' => 0,
+    'apachesolr_read_only' => '1',
+    'apachesolr_soft_commit' => 0,
+  );
   $environment->index_bundles = array(
     'node' => array(
       0 => 'article',
