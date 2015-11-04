@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the SEAPapers Feature feature.
+ */
+
+include_once 'seapapers_feature.features.inc';
