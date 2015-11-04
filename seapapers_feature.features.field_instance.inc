@@ -1054,6 +1054,7 @@ function seapapers_feature_field_default_field_instances() {
   // Exported field_instance: 'node-publication_issue-field_pub_issue_date'.
   $field_instances['node-publication_issue-field_pub_issue_date'] = array(
     'bundle' => 'publication_issue',
+    'default_value' => NULL,
     'deleted' => 0,
     'description' => '',
     'display' => array(
@@ -1103,7 +1104,7 @@ function seapapers_feature_field_default_field_instances() {
         'text_parts' => array(),
         'year_range' => '-3:+3',
       ),
-      'type' => 'date_popup',
+      'type' => 'date_select',
       'weight' => 4,
     ),
   );
@@ -1141,18 +1142,11 @@ function seapapers_feature_field_default_field_instances() {
     ),
     'widget' => array(
       'active' => 1,
-      'module' => 'media',
+      'module' => 'file',
       'settings' => array(
-        'allowed_schemes' => array(
-          0 => 'public',
-          1 => 'private',
-        ),
-        'allowed_types' => array(
-          0 => 'image',
-        ),
         'progress_indicator' => 'throbber',
       ),
-      'type' => 'media_generic',
+      'type' => 'file_generic',
       'weight' => 6,
     ),
   );

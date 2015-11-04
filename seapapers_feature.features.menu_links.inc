@@ -70,26 +70,6 @@ function seapapers_feature_menu_default_menu_links() {
     'weight' => -49,
     'customized' => 1,
   );
-  // Exported menu link: menu-contributor-tools_documentation:node/1366.
-  $menu_links['menu-contributor-tools_documentation:node/1366'] = array(
-    'menu_name' => 'menu-contributor-tools',
-    'link_path' => 'node/1366',
-    'router_path' => 'node/%',
-    'link_title' => 'Documentation',
-    'options' => array(
-      'attributes' => array(
-        'title' => '',
-      ),
-      'identifier' => 'menu-contributor-tools_documentation:node/1366',
-    ),
-    'module' => 'menu',
-    'hidden' => 0,
-    'external' => 0,
-    'has_children' => 0,
-    'expanded' => 0,
-    'weight' => -47,
-    'customized' => 1,
-  );
   // Exported menu link: menu-contributor-tools_my-uploads:my-issue-uploads.
   $menu_links['menu-contributor-tools_my-uploads:my-issue-uploads'] = array(
     'menu_name' => 'menu-contributor-tools',
@@ -310,26 +290,6 @@ function seapapers_feature_menu_default_menu_links() {
     'weight' => -50,
     'customized' => 1,
   );
-  // Exported menu link: menu-new-tools_technical-contact:node/1091.
-  $menu_links['menu-new-tools_technical-contact:node/1091'] = array(
-    'menu_name' => 'menu-new-tools',
-    'link_path' => 'node/1091',
-    'router_path' => 'node/%',
-    'link_title' => 'Technical Contact',
-    'options' => array(
-      'attributes' => array(
-        'title' => 'Technical Issues Contact Form',
-      ),
-      'identifier' => 'menu-new-tools_technical-contact:node/1091',
-    ),
-    'module' => 'menu',
-    'hidden' => 0,
-    'external' => 0,
-    'has_children' => 0,
-    'expanded' => 0,
-    'weight' => -48,
-    'customized' => 1,
-  );
   // Exported menu link: menu-reader-tools_search:search.
   $menu_links['menu-reader-tools_search:search'] = array(
     'menu_name' => 'menu-reader-tools',
@@ -358,7 +318,6 @@ function seapapers_feature_menu_default_menu_links() {
   t('Browse Issues by Publication');
   t('Contact');
   t('Create new publication');
-  t('Documentation');
   t('Expected Issues');
   t('Home');
   t('My Expected Issues');
@@ -366,7 +325,6 @@ function seapapers_feature_menu_default_menu_links() {
   t('My Uploads');
   t('Publications');
   t('Search');
-  t('Technical Contact');
   t('Upload Any Issue');
   t('Upload Expected Issues');
 

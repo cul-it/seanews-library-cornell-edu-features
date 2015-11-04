@@ -395,8 +395,6 @@ function seapapers_feature_views_default_views() {
     6 => 0,
     7 => 0,
   );
-  $handler->display->display_options['filters']['field_pub_issue_date_value']['granularity'] = 'month';
-  $handler->display->display_options['filters']['field_pub_issue_date_value']['year_range'] = '-10:+0';
 
   /* Display: Page */
   $handler = $view->new_display('page', 'Page', 'page');
@@ -1989,7 +1987,7 @@ function seapapers_feature_views_default_views() {
   $handler->display->display_options['fields']['title_1']['table'] = 'node';
   $handler->display->display_options['fields']['title_1']['field'] = 'title';
   $handler->display->display_options['fields']['title_1']['label'] = 'Expected Isssue';
-  /* Sort criterion: Content: Publication Expected Issue Date -  start date (field_pub_expected_issue_date) */
+  /* Sort criterion: Content: Publication Expected Issue Date (field_pub_expected_issue_date) */
   $handler->display->display_options['sorts']['field_pub_expected_issue_date_value']['id'] = 'field_pub_expected_issue_date_value';
   $handler->display->display_options['sorts']['field_pub_expected_issue_date_value']['table'] = 'field_data_field_pub_expected_issue_date';
   $handler->display->display_options['sorts']['field_pub_expected_issue_date_value']['field'] = 'field_pub_expected_issue_date_value';
@@ -2516,8 +2514,6 @@ function seapapers_feature_views_default_views() {
     6 => 0,
     7 => 0,
   );
-  $handler->display->display_options['filters']['field_pub_issue_date_value']['granularity'] = 'month';
-  $handler->display->display_options['filters']['field_pub_issue_date_value']['year_range'] = '-10:+3';
 
   /* Display: Page */
   $handler = $view->new_display('page', 'Page', 'page');
@@ -3379,8 +3375,6 @@ function seapapers_feature_views_default_views() {
     6 => 0,
     7 => 0,
   );
-  $handler->display->display_options['filters']['field_pub_issue_date_value']['granularity'] = 'month';
-  $handler->display->display_options['filters']['field_pub_issue_date_value']['year_range'] = '-10:+0';
 
   /* Display: Page */
   $handler = $view->new_display('page', 'Page', 'page');

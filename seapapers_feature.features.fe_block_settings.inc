@@ -21,16 +21,10 @@ function seapapers_feature_default_fe_block_settings() {
     'pages' => '',
     'roles' => array(),
     'themes' => array(
-      'bluemasters' => array(
+      'bartik' => array(
         'region' => '',
         'status' => 0,
-        'theme' => 'bluemasters',
-        'weight' => 0,
-      ),
-      'garland' => array(
-        'region' => '',
-        'status' => 0,
-        'theme' => 'garland',
+        'theme' => 'bartik',
         'weight' => 0,
       ),
       'seven' => array(
@@ -59,16 +53,10 @@ function seapapers_feature_default_fe_block_settings() {
     'pages' => '',
     'roles' => array(),
     'themes' => array(
-      'bluemasters' => array(
+      'bartik' => array(
         'region' => '',
         'status' => 0,
-        'theme' => 'bluemasters',
-        'weight' => 0,
-      ),
-      'garland' => array(
-        'region' => '',
-        'status' => 0,
-        'theme' => 'garland',
+        'theme' => 'bartik',
         'weight' => 0,
       ),
       'seven' => array(
@@ -78,8 +66,8 @@ function seapapers_feature_default_fe_block_settings() {
         'weight' => 0,
       ),
       'skeletontheme' => array(
-        'region' => 'header_top_left',
-        'status' => 1,
+        'region' => '',
+        'status' => 0,
         'theme' => 'skeletontheme',
         'weight' => 0,
       ),

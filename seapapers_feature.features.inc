@@ -170,7 +170,8 @@ function seapapers_feature_default_search_api_index() {
       }
     },
     "enabled" : "0",
-    "read_only" : "0"
+    "read_only" : "0",
+    "rdf_mapping" : []
   }');
   $items['publications'] = entity_import('search_api_index', '{
     "name" : "Publications",
@@ -309,7 +310,8 @@ function seapapers_feature_default_search_api_index() {
       }
     },
     "enabled" : "0",
-    "read_only" : "0"
+    "read_only" : "0",
+    "rdf_mapping" : []
   }');
   return $items;
 }
