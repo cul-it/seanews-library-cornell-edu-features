@@ -214,7 +214,7 @@ function seapapers_feature_menu_default_menu_links() {
   $menu_links['menu-editorial-director-tools_create-new-publication:node/add/publication'] = array(
     'menu_name' => 'menu-editorial-director-tools',
     'link_path' => 'node/add/publication',
-    'router_path' => 'node/add/publication',
+    'router_path' => 'node/add',
     'link_title' => 'Create new publication',
     'options' => array(
       'attributes' => array(
@@ -274,7 +274,7 @@ function seapapers_feature_menu_default_menu_links() {
   $menu_links['menu-new-tools_search:search/site'] = array(
     'menu_name' => 'menu-new-tools',
     'link_path' => 'search/site',
-    'router_path' => 'search/site',
+    'router_path' => 'search',
     'link_title' => 'Search',
     'options' => array(
       'attributes' => array(
