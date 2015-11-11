@@ -21,7 +21,11 @@ function seapapers_feature_apachesolr_environments() {
     'apachesolr_read_only' => '0',
     'apachesolr_soft_commit' => 1,
   );
-  $environment->index_bundles = array();
+  $environment->index_bundles = array(
+    'node' => array(
+      0 => 'publication_issue',
+    ),
+  );
   $export['development_core_of_solr'] = $environment;
 
   $environment = new stdClass();

@@ -19,25 +19,25 @@ function seapapers_feature_user_default_roles() {
   // Exported role: Editor.
   $roles['Editor'] = array(
     'name' => 'Editor',
-    'weight' => 8,
+    'weight' => 6,
   );
 
   // Exported role: Editorial Director.
   $roles['Editorial Director'] = array(
     'name' => 'Editorial Director',
-    'weight' => 7,
+    'weight' => 5,
   );
 
   // Exported role: IP Address Based Login.
   $roles['IP Address Based Login'] = array(
     'name' => 'IP Address Based Login',
-    'weight' => 10,
+    'weight' => 7,
   );
 
   // Exported role: Read All Papers All Issues.
   $roles['Read All Papers All Issues'] = array(
     'name' => 'Read All Papers All Issues',
-    'weight' => 9,
+    'weight' => 8,
   );
 
   // Exported role: publisher.
@@ -49,7 +49,7 @@ function seapapers_feature_user_default_roles() {
   // Exported role: reader.
   $roles['reader'] = array(
     'name' => 'reader',
-    'weight' => 5,
+    'weight' => 2,
   );
 
   return $roles;
