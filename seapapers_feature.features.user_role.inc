@@ -13,43 +13,50 @@ function seapapers_feature_user_default_roles() {
   // Exported role: Contributor.
   $roles['Contributor'] = array(
     'name' => 'Contributor',
-    'weight' => 3,
+    'weight' => 7,
+    'machine_name' => 'contributor',
   );
 
   // Exported role: Editor.
   $roles['Editor'] = array(
     'name' => 'Editor',
-    'weight' => 6,
+    'weight' => 8,
+    'machine_name' => 'editor',
   );
 
   // Exported role: Editorial Director.
   $roles['Editorial Director'] = array(
     'name' => 'Editorial Director',
-    'weight' => 5,
+    'weight' => 9,
+    'machine_name' => 'editorial_director',
   );
 
   // Exported role: IP Address Based Login.
   $roles['IP Address Based Login'] = array(
     'name' => 'IP Address Based Login',
-    'weight' => 7,
+    'weight' => 5,
+    'machine_name' => 'ip_address_based_login',
   );
 
   // Exported role: Read All Papers All Issues.
   $roles['Read All Papers All Issues'] = array(
     'name' => 'Read All Papers All Issues',
-    'weight' => 8,
+    'weight' => 6,
+    'machine_name' => 'read_all_papers_all_issues',
   );
 
   // Exported role: publisher.
   $roles['publisher'] = array(
     'name' => 'publisher',
-    'weight' => 4,
+    'weight' => 3,
+    'machine_name' => 'publisher',
   );
 
   // Exported role: reader.
   $roles['reader'] = array(
     'name' => 'reader',
     'weight' => 2,
+    'machine_name' => 'reader',
   );
 
   return $roles;

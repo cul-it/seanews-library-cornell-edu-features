@@ -473,7 +473,7 @@ function seapapers_feature_views_default_views() {
   $handler->display->display_options['use_more_always'] = FALSE;
   $handler->display->display_options['access']['type'] = 'role';
   $handler->display->display_options['access']['role'] = array(
-    5 => 5,
+    30037204 => '30037204',
   );
   $handler->display->display_options['cache']['type'] = 'none';
   $handler->display->display_options['query']['type'] = 'views_query';
@@ -1125,7 +1125,7 @@ function seapapers_feature_views_default_views() {
   $handler->display->display_options['use_more_always'] = FALSE;
   $handler->display->display_options['access']['type'] = 'role';
   $handler->display->display_options['access']['role'] = array(
-    5 => '5',
+    30037204 => '30037204',
   );
   $handler->display->display_options['cache']['type'] = 'none';
   $handler->display->display_options['query']['type'] = 'views_query';
@@ -1193,10 +1193,12 @@ function seapapers_feature_views_default_views() {
   $handler->display->display_options['use_more_always'] = FALSE;
   $handler->display->display_options['access']['type'] = 'role';
   $handler->display->display_options['access']['role'] = array(
-    5 => '5',
-    3 => '3',
-    8 => '8',
-    4 => '4',
+    30037204 => '30037204',
+    24016810 => '24016810',
+    188284353 => '188284353',
+    200153887 => '200153887',
+    117318317 => '117318317',
+    227989135 => '227989135',
   );
   $handler->display->display_options['cache']['type'] = 'none';
   $handler->display->display_options['query']['type'] = 'views_query';
@@ -1443,7 +1445,7 @@ function seapapers_feature_views_default_views() {
   $handler->display->display_options['filters']['rid']['table'] = 'users_roles';
   $handler->display->display_options['filters']['rid']['field'] = 'rid';
   $handler->display->display_options['filters']['rid']['value'] = array(
-    9 => '9',
+    188284353 => '188284353',
   );
   /* Filter criterion: Content: Expected Issue Lookup (field_expected_issue_lookup) */
   $handler->display->display_options['filters']['field_expected_issue_lookup_value']['id'] = 'field_expected_issue_lookup_value';
@@ -1604,10 +1606,10 @@ function seapapers_feature_views_default_views() {
   $handler->display->display_options['use_more_always'] = FALSE;
   $handler->display->display_options['access']['type'] = 'role';
   $handler->display->display_options['access']['role'] = array(
-    5 => '5',
-    3 => '3',
-    8 => '8',
-    4 => '4',
+    30037204 => '30037204',
+    188284353 => '188284353',
+    200153887 => '200153887',
+    227989135 => '227989135',
   );
   $handler->display->display_options['cache']['type'] = 'none';
   $handler->display->display_options['query']['type'] = 'views_query';
@@ -1713,8 +1715,11 @@ function seapapers_feature_views_default_views() {
   $handler->display->display_options['use_more_always'] = FALSE;
   $handler->display->display_options['access']['type'] = 'role';
   $handler->display->display_options['access']['role'] = array(
-    5 => '5',
-    3 => '3',
+    30037204 => '30037204',
+    188284353 => '188284353',
+    200153887 => '200153887',
+    117318317 => '117318317',
+    227989135 => '227989135',
   );
   $handler->display->display_options['cache']['type'] = 'none';
   $handler->display->display_options['query']['type'] = 'views_query';
@@ -1832,8 +1837,7 @@ function seapapers_feature_views_default_views() {
   $handler->display->display_options['use_more_always'] = FALSE;
   $handler->display->display_options['access']['type'] = 'role';
   $handler->display->display_options['access']['role'] = array(
-    5 => '5',
-    4 => '4',
+    30037204 => '30037204',
   );
   $handler->display->display_options['cache']['type'] = 'none';
   $handler->display->display_options['query']['type'] = 'views_query';
@@ -1868,7 +1872,7 @@ function seapapers_feature_views_default_views() {
   $handler->display->display_options['filters']['rid']['table'] = 'users_roles';
   $handler->display->display_options['filters']['rid']['field'] = 'rid';
   $handler->display->display_options['filters']['rid']['value'] = array(
-    3 => '3',
+    188284353 => '188284353',
   );
   $handler->display->display_options['filters']['rid']['reduce_duplicates'] = TRUE;
 
@@ -1908,8 +1912,8 @@ function seapapers_feature_views_default_views() {
   $handler->display->display_options['use_more_always'] = FALSE;
   $handler->display->display_options['access']['type'] = 'role';
   $handler->display->display_options['access']['role'] = array(
-    5 => '5',
-    8 => '8',
+    30037204 => '30037204',
+    117318317 => '117318317',
   );
   $handler->display->display_options['cache']['type'] = 'none';
   $handler->display->display_options['query']['type'] = 'views_query';
@@ -2323,8 +2327,8 @@ function seapapers_feature_views_default_views() {
   $handler->display->display_options['use_more_always'] = FALSE;
   $handler->display->display_options['access']['type'] = 'role';
   $handler->display->display_options['access']['role'] = array(
-    5 => '5',
-    8 => '8',
+    30037204 => '30037204',
+    117318317 => '117318317',
   );
   $handler->display->display_options['cache']['type'] = 'none';
   $handler->display->display_options['query']['type'] = 'views_query';
@@ -2705,8 +2709,8 @@ function seapapers_feature_views_default_views() {
   $handler->display->display_options['use_more_always'] = FALSE;
   $handler->display->display_options['access']['type'] = 'role';
   $handler->display->display_options['access']['role'] = array(
-    5 => '5',
-    4 => '4',
+    30037204 => '30037204',
+    227989135 => '227989135',
   );
   $handler->display->display_options['cache']['type'] = 'none';
   $handler->display->display_options['query']['type'] = 'views_query';
@@ -2801,15 +2805,6 @@ function seapapers_feature_views_default_views() {
   $handler->display->display_options['fields']['nid_1']['relationship'] = 'reverse_field_expected_issue_publication_node';
   $handler->display->display_options['fields']['nid_1']['label'] = 'Expected Issues Nid';
   $handler->display->display_options['fields']['nid_1']['exclude'] = TRUE;
-  /* Field: Broken/missing handler */
-  $handler->display->display_options['fields']['field_expected_issue_date']['id'] = 'field_expected_issue_date';
-  $handler->display->display_options['fields']['field_expected_issue_date']['table'] = 'field_data_field_expected_issue_date';
-  $handler->display->display_options['fields']['field_expected_issue_date']['field'] = 'field_expected_issue_date';
-  $handler->display->display_options['fields']['field_expected_issue_date']['relationship'] = 'reverse_field_expected_issue_publication_node';
-  $handler->display->display_options['fields']['field_expected_issue_date']['label'] = 'Expected Issue Dates';
-  $handler->display->display_options['fields']['field_expected_issue_date']['alter']['make_link'] = TRUE;
-  $handler->display->display_options['fields']['field_expected_issue_date']['alter']['path'] = 'node/[nid_1]/edit';
-  $handler->display->display_options['fields']['field_expected_issue_date']['empty'] = '<a href="/node/add/expected-issue?field_expected_issue_publication=[nid]" title="Add expected issue reminders">Add...</a>';
   /* Field: Global: Custom text */
   $handler->display->display_options['fields']['nothing']['id'] = 'nothing';
   $handler->display->display_options['fields']['nothing']['table'] = 'views';
@@ -3104,9 +3099,9 @@ function seapapers_feature_views_default_views() {
   $handler->display->display_options['defaults']['access'] = FALSE;
   $handler->display->display_options['access']['type'] = 'role';
   $handler->display->display_options['access']['role'] = array(
-    5 => '5',
-    8 => '8',
-    4 => '4',
+    30037204 => '30037204',
+    117318317 => '117318317',
+    227989135 => '227989135',
   );
   $handler->display->display_options['defaults']['fields'] = FALSE;
   /* Field: Content: Nid */
@@ -3163,8 +3158,8 @@ function seapapers_feature_views_default_views() {
   $handler->display->display_options['defaults']['access'] = FALSE;
   $handler->display->display_options['access']['type'] = 'role';
   $handler->display->display_options['access']['role'] = array(
-    5 => '5',
-    8 => '8',
+    30037204 => '30037204',
+    117318317 => '117318317',
   );
   $handler->display->display_options['defaults']['fields'] = FALSE;
   /* Field: Content: Nid */
