@@ -53,14 +53,6 @@ function seapapers_feature_node_info() {
       'title_label' => t('Title'),
       'help' => '',
     ),
-    'publication_expected_issue' => array(
-      'name' => t('Publication Expected Issue'),
-      'base' => 'node_content',
-      'description' => t('Holds the date when an issue of a publication is expected. Uses date_repeat_entity to generate a node for each date in a series of dates. '),
-      'has_title' => '1',
-      'title_label' => t('Title'),
-      'help' => '',
-    ),
     'publication_issue' => array(
       'name' => t('Publication Issue'),
       'base' => 'node_content',

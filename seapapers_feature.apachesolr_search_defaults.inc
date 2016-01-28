@@ -18,7 +18,7 @@ function seapapers_feature_apachesolr_search_default_searchers() {
   $searcher->description = 'Core Search';
   $searcher->search_path = 'search/site';
   $searcher->page_title = 'Site';
-  $searcher->env_id = 'development_core_of_solr';
+  $searcher->env_id = 'solr';
   $searcher->settings = array(
     'apachesolr_search_search_type' => 'custom',
     'apachesolr_search_per_page' => 10,
