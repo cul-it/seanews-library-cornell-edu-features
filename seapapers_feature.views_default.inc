@@ -484,6 +484,7 @@ function seapapers_feature_views_default_views() {
     'edit_node' => 'edit_node',
     'title' => 'title',
     'changed' => 'changed',
+    'views_bulk_operations' => 'views_bulk_operations',
   );
   $handler->display->display_options['style_options']['default'] = '-1';
   $handler->display->display_options['style_options']['info'] = array(
@@ -493,15 +494,20 @@ function seapapers_feature_views_default_views() {
       'empty_column' => 0,
     ),
     'title' => array(
-      'sortable' => 0,
+      'sortable' => 1,
       'default_sort_order' => 'asc',
       'align' => '',
       'separator' => '',
       'empty_column' => 0,
     ),
     'changed' => array(
-      'sortable' => 0,
+      'sortable' => 1,
       'default_sort_order' => 'asc',
+      'align' => '',
+      'separator' => '',
+      'empty_column' => 0,
+    ),
+    'views_bulk_operations' => array(
       'align' => '',
       'separator' => '',
       'empty_column' => 0,
@@ -525,9 +531,17 @@ function seapapers_feature_views_default_views() {
   $handler->display->display_options['fields']['views_bulk_operations']['field'] = 'views_bulk_operations';
   $handler->display->display_options['fields']['views_bulk_operations']['vbo_settings']['display_type'] = '0';
   $handler->display->display_options['fields']['views_bulk_operations']['vbo_settings']['enable_select_all_pages'] = 1;
+  $handler->display->display_options['fields']['views_bulk_operations']['vbo_settings']['row_clickable'] = 1;
   $handler->display->display_options['fields']['views_bulk_operations']['vbo_settings']['force_single'] = 0;
   $handler->display->display_options['fields']['views_bulk_operations']['vbo_settings']['entity_load_capacity'] = '10';
   $handler->display->display_options['fields']['views_bulk_operations']['vbo_operations'] = array(
+    'action::views_bulk_operations_delete_item' => array(
+      'selected' => 1,
+      'postpone_processing' => 0,
+      'skip_confirmation' => 0,
+      'override_label' => 0,
+      'label' => '',
+    ),
     'action::views_bulk_operations_modify_action' => array(
       'selected' => 1,
       'postpone_processing' => 0,
@@ -1240,222 +1254,6 @@ function seapapers_feature_views_default_views() {
   $export['documentation'] = $view;
 
   $view = new view();
-  $view->name = 'editor_expected_issues';
-  $view->description = '';
-  $view->tag = 'v2';
-  $view->base_table = 'node';
-  $view->human_name = 'Editor Expected Issues';
-  $view->core = 7;
-  $view->api_version = '3.0';
-  $view->disabled = FALSE; /* Edit this to true to make a default view disabled initially */
-
-  /* Display: Master */
-  $handler = $view->new_display('default', 'Master', 'default');
-  $handler->display->display_options['title'] = 'Expected Issues';
-  $handler->display->display_options['use_more_always'] = FALSE;
-  $handler->display->display_options['access']['type'] = 'perm';
-  $handler->display->display_options['cache']['type'] = 'none';
-  $handler->display->display_options['query']['type'] = 'views_query';
-  $handler->display->display_options['exposed_form']['type'] = 'basic';
-  $handler->display->display_options['pager']['type'] = 'none';
-  $handler->display->display_options['pager']['options']['offset'] = '0';
-  $handler->display->display_options['style_plugin'] = 'list';
-  $handler->display->display_options['style_options']['grouping'] = array(
-    0 => array(
-      'field' => 'title',
-      'rendered' => 1,
-      'rendered_strip' => 0,
-    ),
-  );
-  $handler->display->display_options['row_plugin'] = 'fields';
-  /* Relationship: Entity Reference: Referenced Entity */
-  $handler->display->display_options['relationships']['field_publication_ent_reference_target_id']['id'] = 'field_publication_ent_reference_target_id';
-  $handler->display->display_options['relationships']['field_publication_ent_reference_target_id']['table'] = 'field_data_field_publication_ent_reference';
-  $handler->display->display_options['relationships']['field_publication_ent_reference_target_id']['field'] = 'field_publication_ent_reference_target_id';
-  $handler->display->display_options['relationships']['field_publication_ent_reference_target_id']['label'] = 'Publication';
-  /* Field: Content: Title */
-  $handler->display->display_options['fields']['title']['id'] = 'title';
-  $handler->display->display_options['fields']['title']['table'] = 'node';
-  $handler->display->display_options['fields']['title']['field'] = 'title';
-  $handler->display->display_options['fields']['title']['relationship'] = 'field_publication_ent_reference_target_id';
-  $handler->display->display_options['fields']['title']['label'] = '';
-  $handler->display->display_options['fields']['title']['exclude'] = TRUE;
-  $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
-  $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
-  $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
-  /* Field: Content: Publication Expected Issue Date */
-  $handler->display->display_options['fields']['field_pub_expected_issue_date']['id'] = 'field_pub_expected_issue_date';
-  $handler->display->display_options['fields']['field_pub_expected_issue_date']['table'] = 'field_data_field_pub_expected_issue_date';
-  $handler->display->display_options['fields']['field_pub_expected_issue_date']['field'] = 'field_pub_expected_issue_date';
-  $handler->display->display_options['fields']['field_pub_expected_issue_date']['label'] = '';
-  $handler->display->display_options['fields']['field_pub_expected_issue_date']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['field_pub_expected_issue_date']['settings'] = array(
-    'format_type' => 'short',
-    'fromto' => 'value',
-    'multiple_number' => '1',
-    'multiple_from' => '',
-    'multiple_to' => '',
-    'show_repeat_rule' => 'hide',
-  );
-  $handler->display->display_options['fields']['field_pub_expected_issue_date']['delta_offset'] = '0';
-  /* Sort criterion: Content: Post date */
-  $handler->display->display_options['sorts']['created']['id'] = 'created';
-  $handler->display->display_options['sorts']['created']['table'] = 'node';
-  $handler->display->display_options['sorts']['created']['field'] = 'created';
-  $handler->display->display_options['sorts']['created']['order'] = 'DESC';
-  /* Contextual filter: Content: Editor (field_pub_editor) */
-  $handler->display->display_options['arguments']['field_pub_editor_uid']['id'] = 'field_pub_editor_uid';
-  $handler->display->display_options['arguments']['field_pub_editor_uid']['table'] = 'field_data_field_pub_editor';
-  $handler->display->display_options['arguments']['field_pub_editor_uid']['field'] = 'field_pub_editor_uid';
-  $handler->display->display_options['arguments']['field_pub_editor_uid']['relationship'] = 'field_publication_ent_reference_target_id';
-  $handler->display->display_options['arguments']['field_pub_editor_uid']['default_action'] = 'default';
-  $handler->display->display_options['arguments']['field_pub_editor_uid']['default_argument_type'] = 'current_user';
-  $handler->display->display_options['arguments']['field_pub_editor_uid']['summary']['number_of_records'] = '0';
-  $handler->display->display_options['arguments']['field_pub_editor_uid']['summary']['format'] = 'default_summary';
-  $handler->display->display_options['arguments']['field_pub_editor_uid']['summary_options']['items_per_page'] = '25';
-  /* Filter criterion: Content: Published */
-  $handler->display->display_options['filters']['status']['id'] = 'status';
-  $handler->display->display_options['filters']['status']['table'] = 'node';
-  $handler->display->display_options['filters']['status']['field'] = 'status';
-  $handler->display->display_options['filters']['status']['value'] = 1;
-  $handler->display->display_options['filters']['status']['group'] = 1;
-  $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
-  /* Filter criterion: Content: Type */
-  $handler->display->display_options['filters']['type']['id'] = 'type';
-  $handler->display->display_options['filters']['type']['table'] = 'node';
-  $handler->display->display_options['filters']['type']['field'] = 'type';
-  $handler->display->display_options['filters']['type']['value'] = array(
-    'publication_expected_issue' => 'publication_expected_issue',
-  );
-  /* Filter criterion: Content: Expected Issue Lookup (field_expected_issue_lookup) */
-  $handler->display->display_options['filters']['field_expected_issue_lookup_value']['id'] = 'field_expected_issue_lookup_value';
-  $handler->display->display_options['filters']['field_expected_issue_lookup_value']['table'] = 'field_data_field_expected_issue_lookup';
-  $handler->display->display_options['filters']['field_expected_issue_lookup_value']['field'] = 'field_expected_issue_lookup_value';
-  $handler->display->display_options['filters']['field_expected_issue_lookup_value']['value']['value'] = '0';
-
-  /* Display: Page */
-  $handler = $view->new_display('page', 'Page', 'page');
-  $handler->display->display_options['path'] = 'editor-expected-issues';
-  $export['editor_expected_issues'] = $view;
-
-  $view = new view();
-  $view->name = 'editors_expecting_issues';
-  $view->description = 'List User ID of each Editor who has Expected Issues pending';
-  $view->tag = 'email';
-  $view->base_table = 'users';
-  $view->human_name = 'List the Editors Expecting Issues';
-  $view->core = 7;
-  $view->api_version = '3.0';
-  $view->disabled = FALSE; /* Edit this to true to make a default view disabled initially */
-
-  /* Display: Master */
-  $handler = $view->new_display('default', 'Master', 'default');
-  $handler->display->display_options['title'] = 'Editors with Expected Issues pending';
-  $handler->display->display_options['use_more_always'] = FALSE;
-  $handler->display->display_options['access']['type'] = 'perm';
-  $handler->display->display_options['access']['perm'] = 'access user profiles';
-  $handler->display->display_options['cache']['type'] = 'none';
-  $handler->display->display_options['query']['type'] = 'views_query';
-  $handler->display->display_options['query']['options']['distinct'] = TRUE;
-  $handler->display->display_options['query']['options']['pure_distinct'] = TRUE;
-  $handler->display->display_options['exposed_form']['type'] = 'basic';
-  $handler->display->display_options['pager']['type'] = 'none';
-  $handler->display->display_options['pager']['options']['offset'] = '0';
-  $handler->display->display_options['style_plugin'] = 'table';
-  $handler->display->display_options['style_options']['columns'] = array(
-    'views_bulk_operations' => 'views_bulk_operations',
-    'uid' => 'uid',
-    'name' => 'name',
-  );
-  $handler->display->display_options['style_options']['default'] = '-1';
-  $handler->display->display_options['style_options']['info'] = array(
-    'views_bulk_operations' => array(
-      'align' => '',
-      'separator' => '',
-      'empty_column' => 0,
-    ),
-    'uid' => array(
-      'sortable' => 0,
-      'default_sort_order' => 'asc',
-      'align' => '',
-      'separator' => '',
-      'empty_column' => 0,
-    ),
-    'name' => array(
-      'sortable' => 0,
-      'default_sort_order' => 'asc',
-      'align' => '',
-      'separator' => '',
-      'empty_column' => 0,
-    ),
-  );
-  /* Relationship: User: Editor (field_pub_editor) - reverse */
-  $handler->display->display_options['relationships']['reverse_field_pub_editor_node']['id'] = 'reverse_field_pub_editor_node';
-  $handler->display->display_options['relationships']['reverse_field_pub_editor_node']['table'] = 'users';
-  $handler->display->display_options['relationships']['reverse_field_pub_editor_node']['field'] = 'reverse_field_pub_editor_node';
-  $handler->display->display_options['relationships']['reverse_field_pub_editor_node']['label'] = 'Is Editor of Publication';
-  /* Relationship: Entity Reference: Referencing entity */
-  $handler->display->display_options['relationships']['reverse_field_publication_ent_reference_node']['id'] = 'reverse_field_publication_ent_reference_node';
-  $handler->display->display_options['relationships']['reverse_field_publication_ent_reference_node']['table'] = 'node';
-  $handler->display->display_options['relationships']['reverse_field_publication_ent_reference_node']['field'] = 'reverse_field_publication_ent_reference_node';
-  $handler->display->display_options['relationships']['reverse_field_publication_ent_reference_node']['relationship'] = 'reverse_field_pub_editor_node';
-  $handler->display->display_options['relationships']['reverse_field_publication_ent_reference_node']['label'] = 'Expected Isssue';
-  /* Field: Bulk operations: User */
-  $handler->display->display_options['fields']['views_bulk_operations']['id'] = 'views_bulk_operations';
-  $handler->display->display_options['fields']['views_bulk_operations']['table'] = 'users';
-  $handler->display->display_options['fields']['views_bulk_operations']['field'] = 'views_bulk_operations';
-  $handler->display->display_options['fields']['views_bulk_operations']['vbo_settings']['display_type'] = '0';
-  $handler->display->display_options['fields']['views_bulk_operations']['vbo_settings']['enable_select_all_pages'] = 1;
-  $handler->display->display_options['fields']['views_bulk_operations']['vbo_settings']['force_single'] = 0;
-  $handler->display->display_options['fields']['views_bulk_operations']['vbo_settings']['entity_load_capacity'] = '10';
-  $handler->display->display_options['fields']['views_bulk_operations']['vbo_operations'] = array(
-    'action::system_send_email_action' => array(
-      'selected' => 1,
-      'postpone_processing' => 0,
-      'skip_confirmation' => 0,
-      'override_label' => 0,
-      'label' => '',
-    ),
-  );
-  /* Field: User: Uid */
-  $handler->display->display_options['fields']['uid']['id'] = 'uid';
-  $handler->display->display_options['fields']['uid']['table'] = 'users';
-  $handler->display->display_options['fields']['uid']['field'] = 'uid';
-  /* Field: User: Name */
-  $handler->display->display_options['fields']['name']['id'] = 'name';
-  $handler->display->display_options['fields']['name']['table'] = 'users';
-  $handler->display->display_options['fields']['name']['field'] = 'name';
-  $handler->display->display_options['fields']['name']['label'] = '';
-  $handler->display->display_options['fields']['name']['alter']['word_boundary'] = FALSE;
-  $handler->display->display_options['fields']['name']['alter']['ellipsis'] = FALSE;
-  /* Sort criterion: User: Created date */
-  $handler->display->display_options['sorts']['created']['id'] = 'created';
-  $handler->display->display_options['sorts']['created']['table'] = 'users';
-  $handler->display->display_options['sorts']['created']['field'] = 'created';
-  $handler->display->display_options['sorts']['created']['order'] = 'DESC';
-  /* Filter criterion: User: Active */
-  $handler->display->display_options['filters']['status']['id'] = 'status';
-  $handler->display->display_options['filters']['status']['table'] = 'users';
-  $handler->display->display_options['filters']['status']['field'] = 'status';
-  $handler->display->display_options['filters']['status']['value'] = '1';
-  $handler->display->display_options['filters']['status']['group'] = 1;
-  $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
-  /* Filter criterion: User: Roles */
-  $handler->display->display_options['filters']['rid']['id'] = 'rid';
-  $handler->display->display_options['filters']['rid']['table'] = 'users_roles';
-  $handler->display->display_options['filters']['rid']['field'] = 'rid';
-  $handler->display->display_options['filters']['rid']['value'] = array(
-    188284353 => '188284353',
-  );
-  /* Filter criterion: Content: Expected Issue Lookup (field_expected_issue_lookup) */
-  $handler->display->display_options['filters']['field_expected_issue_lookup_value']['id'] = 'field_expected_issue_lookup_value';
-  $handler->display->display_options['filters']['field_expected_issue_lookup_value']['table'] = 'field_data_field_expected_issue_lookup';
-  $handler->display->display_options['filters']['field_expected_issue_lookup_value']['field'] = 'field_expected_issue_lookup_value';
-  $handler->display->display_options['filters']['field_expected_issue_lookup_value']['relationship'] = 'reverse_field_publication_ent_reference_node';
-  $handler->display->display_options['filters']['field_expected_issue_lookup_value']['value']['value'] = '0';
-  $export['editors_expecting_issues'] = $view;
-
-  $view = new view();
   $view->name = 'export_newspapers';
   $view->description = 'Export for migrating newspapers to new content type';
   $view->tag = 'v1, jgr';
@@ -1895,521 +1693,6 @@ function seapapers_feature_views_default_views() {
   $handler->display->display_options['row_plugin'] = 'entityreference_fields';
   $handler->display->display_options['defaults']['row_options'] = FALSE;
   $export['possible_maintainers'] = $view;
-
-  $view = new view();
-  $view->name = 'publication_expected_issues';
-  $view->description = '';
-  $view->tag = 'v2';
-  $view->base_table = 'node';
-  $view->human_name = 'Publication Expected Issues';
-  $view->core = 7;
-  $view->api_version = '3.0';
-  $view->disabled = FALSE; /* Edit this to true to make a default view disabled initially */
-
-  /* Display: Master */
-  $handler = $view->new_display('default', 'Master', 'default');
-  $handler->display->display_options['title'] = 'Contributor Expected Issues';
-  $handler->display->display_options['use_more_always'] = FALSE;
-  $handler->display->display_options['access']['type'] = 'role';
-  $handler->display->display_options['access']['role'] = array(
-    30037204 => '30037204',
-    117318317 => '117318317',
-  );
-  $handler->display->display_options['cache']['type'] = 'none';
-  $handler->display->display_options['query']['type'] = 'views_query';
-  $handler->display->display_options['exposed_form']['type'] = 'basic';
-  $handler->display->display_options['pager']['type'] = 'full';
-  $handler->display->display_options['pager']['options']['items_per_page'] = '20';
-  $handler->display->display_options['style_plugin'] = 'list';
-  $handler->display->display_options['row_plugin'] = 'fields';
-  /* Relationship: Entity Reference: Referenced Entity */
-  $handler->display->display_options['relationships']['field_publication_ent_reference_target_id']['id'] = 'field_publication_ent_reference_target_id';
-  $handler->display->display_options['relationships']['field_publication_ent_reference_target_id']['table'] = 'field_data_field_publication_ent_reference';
-  $handler->display->display_options['relationships']['field_publication_ent_reference_target_id']['field'] = 'field_publication_ent_reference_target_id';
-  $handler->display->display_options['relationships']['field_publication_ent_reference_target_id']['label'] = 'Publication';
-  /* Field: Content: Nid */
-  $handler->display->display_options['fields']['nid']['id'] = 'nid';
-  $handler->display->display_options['fields']['nid']['table'] = 'node';
-  $handler->display->display_options['fields']['nid']['field'] = 'nid';
-  $handler->display->display_options['fields']['nid']['relationship'] = 'field_publication_reference_nid';
-  $handler->display->display_options['fields']['nid']['label'] = 'Publication Nid';
-  $handler->display->display_options['fields']['nid']['exclude'] = TRUE;
-  /* Field: Content: Title */
-  $handler->display->display_options['fields']['title']['id'] = 'title';
-  $handler->display->display_options['fields']['title']['table'] = 'node';
-  $handler->display->display_options['fields']['title']['field'] = 'title';
-  $handler->display->display_options['fields']['title']['relationship'] = 'field_publication_reference_nid';
-  $handler->display->display_options['fields']['title']['label'] = 'Publication Title';
-  $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
-  $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
-  /* Field: Content: Publication Expected Issue Date */
-  $handler->display->display_options['fields']['field_pub_expected_issue_date_1']['id'] = 'field_pub_expected_issue_date_1';
-  $handler->display->display_options['fields']['field_pub_expected_issue_date_1']['table'] = 'field_data_field_pub_expected_issue_date';
-  $handler->display->display_options['fields']['field_pub_expected_issue_date_1']['field'] = 'field_pub_expected_issue_date';
-  $handler->display->display_options['fields']['field_pub_expected_issue_date_1']['settings'] = array(
-    'format_type' => 'short',
-    'fromto' => 'value',
-    'multiple_number' => '1',
-    'multiple_from' => '',
-    'multiple_to' => '',
-    'show_repeat_rule' => 'hide',
-  );
-  $handler->display->display_options['fields']['field_pub_expected_issue_date_1']['delta_offset'] = '0';
-  /* Field: Content: Nid */
-  $handler->display->display_options['fields']['nid_1']['id'] = 'nid_1';
-  $handler->display->display_options['fields']['nid_1']['table'] = 'node';
-  $handler->display->display_options['fields']['nid_1']['field'] = 'nid';
-  $handler->display->display_options['fields']['nid_1']['label'] = 'Expected Issue Nid';
-  $handler->display->display_options['fields']['nid_1']['exclude'] = TRUE;
-  /* Field: Content: Publication Expected Issue Date */
-  $handler->display->display_options['fields']['field_pub_expected_issue_date']['id'] = 'field_pub_expected_issue_date';
-  $handler->display->display_options['fields']['field_pub_expected_issue_date']['table'] = 'field_data_field_pub_expected_issue_date';
-  $handler->display->display_options['fields']['field_pub_expected_issue_date']['field'] = 'field_pub_expected_issue_date';
-  $handler->display->display_options['fields']['field_pub_expected_issue_date']['alter']['make_link'] = TRUE;
-  $handler->display->display_options['fields']['field_pub_expected_issue_date']['alter']['path'] = 'node/[nid_1]';
-  $handler->display->display_options['fields']['field_pub_expected_issue_date']['settings'] = array(
-    'format_type' => 'short',
-    'fromto' => 'value',
-    'multiple_number' => '1',
-    'multiple_from' => '',
-    'multiple_to' => '',
-    'show_repeat_rule' => 'hide',
-  );
-  $handler->display->display_options['fields']['field_pub_expected_issue_date']['delta_offset'] = '0';
-  /* Field: Content: Expected Issue Lookup */
-  $handler->display->display_options['fields']['field_expected_issue_lookup']['id'] = 'field_expected_issue_lookup';
-  $handler->display->display_options['fields']['field_expected_issue_lookup']['table'] = 'field_data_field_expected_issue_lookup';
-  $handler->display->display_options['fields']['field_expected_issue_lookup']['field'] = 'field_expected_issue_lookup';
-  $handler->display->display_options['fields']['field_expected_issue_lookup']['alter']['alter_text'] = TRUE;
-  $handler->display->display_options['fields']['field_expected_issue_lookup']['alter']['text'] = 'See Issue';
-  $handler->display->display_options['fields']['field_expected_issue_lookup']['alter']['make_link'] = TRUE;
-  $handler->display->display_options['fields']['field_expected_issue_lookup']['alter']['path'] = 'node/[field_expected_issue_lookup-value]';
-  $handler->display->display_options['fields']['field_expected_issue_lookup']['empty'] = '<a href="/node/add/publication-issue/?field_pub_issue_pub=[nid]&edit[field_pub_issue_date][und][0][value][date]=[field_pub_expected_issue_date]">Upload</a>';
-  $handler->display->display_options['fields']['field_expected_issue_lookup']['empty_zero'] = TRUE;
-  /* Field: Content: Title */
-  $handler->display->display_options['fields']['title_1']['id'] = 'title_1';
-  $handler->display->display_options['fields']['title_1']['table'] = 'node';
-  $handler->display->display_options['fields']['title_1']['field'] = 'title';
-  $handler->display->display_options['fields']['title_1']['label'] = 'Expected Isssue';
-  /* Sort criterion: Content: Publication Expected Issue Date (field_pub_expected_issue_date) */
-  $handler->display->display_options['sorts']['field_pub_expected_issue_date_value']['id'] = 'field_pub_expected_issue_date_value';
-  $handler->display->display_options['sorts']['field_pub_expected_issue_date_value']['table'] = 'field_data_field_pub_expected_issue_date';
-  $handler->display->display_options['sorts']['field_pub_expected_issue_date_value']['field'] = 'field_pub_expected_issue_date_value';
-  /* Contextual filter: Content: Title - CUL Pathname (field_pub_title_r_cul_path) */
-  $handler->display->display_options['arguments']['field_pub_title_r_cul_path_value']['id'] = 'field_pub_title_r_cul_path_value';
-  $handler->display->display_options['arguments']['field_pub_title_r_cul_path_value']['table'] = 'field_data_field_pub_title_r_cul_path';
-  $handler->display->display_options['arguments']['field_pub_title_r_cul_path_value']['field'] = 'field_pub_title_r_cul_path_value';
-  $handler->display->display_options['arguments']['field_pub_title_r_cul_path_value']['relationship'] = 'field_publication_ent_reference_target_id';
-  $handler->display->display_options['arguments']['field_pub_title_r_cul_path_value']['default_action'] = 'summary';
-  $handler->display->display_options['arguments']['field_pub_title_r_cul_path_value']['default_argument_type'] = 'fixed';
-  $handler->display->display_options['arguments']['field_pub_title_r_cul_path_value']['summary']['number_of_records'] = '0';
-  $handler->display->display_options['arguments']['field_pub_title_r_cul_path_value']['summary']['format'] = 'default_summary';
-  $handler->display->display_options['arguments']['field_pub_title_r_cul_path_value']['summary_options']['base_path'] = 'publication-expected-issues';
-  $handler->display->display_options['arguments']['field_pub_title_r_cul_path_value']['summary_options']['items_per_page'] = '25';
-  $handler->display->display_options['arguments']['field_pub_title_r_cul_path_value']['limit'] = '0';
-  /* Filter criterion: Content: Published */
-  $handler->display->display_options['filters']['status']['id'] = 'status';
-  $handler->display->display_options['filters']['status']['table'] = 'node';
-  $handler->display->display_options['filters']['status']['field'] = 'status';
-  $handler->display->display_options['filters']['status']['value'] = 1;
-  $handler->display->display_options['filters']['status']['group'] = 1;
-  $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
-  /* Filter criterion: Content: Type */
-  $handler->display->display_options['filters']['type']['id'] = 'type';
-  $handler->display->display_options['filters']['type']['table'] = 'node';
-  $handler->display->display_options['filters']['type']['field'] = 'type';
-  $handler->display->display_options['filters']['type']['value'] = array(
-    'publication_expected_issue' => 'publication_expected_issue',
-  );
-  $handler->display->display_options['filters']['type']['group'] = 1;
-
-  /* Display: Director */
-  $handler = $view->new_display('page', 'Director', 'page');
-  $handler->display->display_options['defaults']['title'] = FALSE;
-  $handler->display->display_options['title'] = 'Expected Issues';
-  $handler->display->display_options['display_description'] = 'Display for the Editorial Directors';
-  $handler->display->display_options['defaults']['style_plugin'] = FALSE;
-  $handler->display->display_options['style_plugin'] = 'table';
-  $handler->display->display_options['style_options']['columns'] = array(
-    'nid' => 'nid',
-    'field_pub_expected_issue_date_1' => 'field_pub_expected_issue_date_1',
-    'nid_1' => 'nid_1',
-    'field_pub_expected_issue_date' => 'field_pub_expected_issue_date',
-    'field_expected_issue_lookup' => 'field_expected_issue_lookup',
-  );
-  $handler->display->display_options['style_options']['default'] = '-1';
-  $handler->display->display_options['style_options']['info'] = array(
-    'nid' => array(
-      'sortable' => 0,
-      'default_sort_order' => 'asc',
-      'align' => '',
-      'separator' => '',
-      'empty_column' => 0,
-    ),
-    'field_pub_expected_issue_date_1' => array(
-      'align' => '',
-      'separator' => '',
-      'empty_column' => 0,
-    ),
-    'nid_1' => array(
-      'sortable' => 0,
-      'default_sort_order' => 'asc',
-      'align' => '',
-      'separator' => '',
-      'empty_column' => 0,
-    ),
-    'field_pub_expected_issue_date' => array(
-      'align' => '',
-      'separator' => '',
-      'empty_column' => 0,
-    ),
-    'field_expected_issue_lookup' => array(
-      'sortable' => 0,
-      'default_sort_order' => 'asc',
-      'align' => '',
-      'separator' => '',
-      'empty_column' => 0,
-    ),
-  );
-  $handler->display->display_options['defaults']['style_options'] = FALSE;
-  $handler->display->display_options['defaults']['row_plugin'] = FALSE;
-  $handler->display->display_options['defaults']['row_options'] = FALSE;
-  $handler->display->display_options['defaults']['fields'] = FALSE;
-  /* Field: Content: Nid */
-  $handler->display->display_options['fields']['nid']['id'] = 'nid';
-  $handler->display->display_options['fields']['nid']['table'] = 'node';
-  $handler->display->display_options['fields']['nid']['field'] = 'nid';
-  $handler->display->display_options['fields']['nid']['relationship'] = 'field_publication_ent_reference_target_id';
-  $handler->display->display_options['fields']['nid']['label'] = 'Publication Nid';
-  $handler->display->display_options['fields']['nid']['exclude'] = TRUE;
-  /* Field: Content: Title */
-  $handler->display->display_options['fields']['title']['id'] = 'title';
-  $handler->display->display_options['fields']['title']['table'] = 'node';
-  $handler->display->display_options['fields']['title']['field'] = 'title';
-  $handler->display->display_options['fields']['title']['relationship'] = 'field_publication_ent_reference_target_id';
-  $handler->display->display_options['fields']['title']['exclude'] = TRUE;
-  $handler->display->display_options['fields']['title']['link_to_node'] = FALSE;
-  /* Field: Content: Publication Expected Issue Date */
-  $handler->display->display_options['fields']['field_pub_expected_issue_date_1']['id'] = 'field_pub_expected_issue_date_1';
-  $handler->display->display_options['fields']['field_pub_expected_issue_date_1']['table'] = 'field_data_field_pub_expected_issue_date';
-  $handler->display->display_options['fields']['field_pub_expected_issue_date_1']['field'] = 'field_pub_expected_issue_date';
-  $handler->display->display_options['fields']['field_pub_expected_issue_date_1']['label'] = 'Expected Issue';
-  $handler->display->display_options['fields']['field_pub_expected_issue_date_1']['settings'] = array(
-    'format_type' => 'short',
-    'fromto' => 'value',
-    'multiple_number' => '1',
-    'multiple_from' => '',
-    'multiple_to' => '',
-    'show_repeat_rule' => 'hide',
-  );
-  $handler->display->display_options['fields']['field_pub_expected_issue_date_1']['delta_offset'] = '0';
-  /* Field: Content: Nid */
-  $handler->display->display_options['fields']['nid_1']['id'] = 'nid_1';
-  $handler->display->display_options['fields']['nid_1']['table'] = 'node';
-  $handler->display->display_options['fields']['nid_1']['field'] = 'nid';
-  $handler->display->display_options['fields']['nid_1']['label'] = 'Expected Issue Nid';
-  $handler->display->display_options['fields']['nid_1']['exclude'] = TRUE;
-  /* Field: Content: Expected Issue Lookup */
-  $handler->display->display_options['fields']['field_expected_issue_lookup']['id'] = 'field_expected_issue_lookup';
-  $handler->display->display_options['fields']['field_expected_issue_lookup']['table'] = 'field_data_field_expected_issue_lookup';
-  $handler->display->display_options['fields']['field_expected_issue_lookup']['field'] = 'field_expected_issue_lookup';
-  $handler->display->display_options['fields']['field_expected_issue_lookup']['label'] = 'Found Issue';
-  $handler->display->display_options['fields']['field_expected_issue_lookup']['alter']['alter_text'] = TRUE;
-  $handler->display->display_options['fields']['field_expected_issue_lookup']['alter']['text'] = 'See Issue';
-  $handler->display->display_options['fields']['field_expected_issue_lookup']['alter']['make_link'] = TRUE;
-  $handler->display->display_options['fields']['field_expected_issue_lookup']['alter']['path'] = 'node/[field_expected_issue_lookup-value]';
-  $handler->display->display_options['fields']['field_expected_issue_lookup']['hide_empty'] = TRUE;
-  $handler->display->display_options['fields']['field_expected_issue_lookup']['empty_zero'] = TRUE;
-  /* Field: Global: Custom text */
-  $handler->display->display_options['fields']['nothing']['id'] = 'nothing';
-  $handler->display->display_options['fields']['nothing']['table'] = 'views';
-  $handler->display->display_options['fields']['nothing']['field'] = 'nothing';
-  $handler->display->display_options['fields']['nothing']['label'] = 'Upload Issue Link';
-  $handler->display->display_options['fields']['nothing']['alter']['text'] = 'Upload Issue';
-  $handler->display->display_options['fields']['nothing']['alter']['make_link'] = TRUE;
-  $handler->display->display_options['fields']['nothing']['alter']['path'] = 'node/add/publication-issue/?field_pub_issue_pub=[nid]&edit[field_pub_issue_date][und][0][value][date]=[field_pub_expected_issue_date_1]';
-  $handler->display->display_options['fields']['nothing']['alter']['alt'] = 'Upload the [field_pub_expected_issue_date_1] issue of [title]';
-  $handler->display->display_options['path'] = 'publication-expected-issues';
-
-  /* Display: Attachment */
-  $handler = $view->new_display('attachment', 'Attachment', 'attachment_1');
-  $handler->display->display_options['pager']['type'] = 'some';
-  $handler->display->display_options['pager']['options']['items_per_page'] = '1';
-  $handler->display->display_options['pager']['options']['offset'] = '0';
-  $handler->display->display_options['defaults']['fields'] = FALSE;
-  /* Field: Content: Title */
-  $handler->display->display_options['fields']['title']['id'] = 'title';
-  $handler->display->display_options['fields']['title']['table'] = 'node';
-  $handler->display->display_options['fields']['title']['field'] = 'title';
-  $handler->display->display_options['fields']['title']['relationship'] = 'field_publication_ent_reference_target_id';
-  $handler->display->display_options['fields']['title']['label'] = 'Publication Title';
-  $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
-  $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
-  /* Field: Content: Edit link */
-  $handler->display->display_options['fields']['edit_node']['id'] = 'edit_node';
-  $handler->display->display_options['fields']['edit_node']['table'] = 'views_entity_node';
-  $handler->display->display_options['fields']['edit_node']['field'] = 'edit_node';
-  $handler->display->display_options['fields']['edit_node']['label'] = 'Edit Expected Issues';
-  $handler->display->display_options['fields']['edit_node']['text'] = 'Edit';
-  $handler->display->display_options['defaults']['arguments'] = FALSE;
-  /* Contextual filter: Content: Title - CUL Pathname (field_pub_title_r_cul_path) */
-  $handler->display->display_options['arguments']['field_pub_title_r_cul_path_value']['id'] = 'field_pub_title_r_cul_path_value';
-  $handler->display->display_options['arguments']['field_pub_title_r_cul_path_value']['table'] = 'field_data_field_pub_title_r_cul_path';
-  $handler->display->display_options['arguments']['field_pub_title_r_cul_path_value']['field'] = 'field_pub_title_r_cul_path_value';
-  $handler->display->display_options['arguments']['field_pub_title_r_cul_path_value']['relationship'] = 'field_publication_ent_reference_target_id';
-  $handler->display->display_options['arguments']['field_pub_title_r_cul_path_value']['default_action'] = 'not found';
-  $handler->display->display_options['arguments']['field_pub_title_r_cul_path_value']['default_argument_type'] = 'fixed';
-  $handler->display->display_options['arguments']['field_pub_title_r_cul_path_value']['summary']['number_of_records'] = '0';
-  $handler->display->display_options['arguments']['field_pub_title_r_cul_path_value']['summary']['format'] = 'default_summary';
-  $handler->display->display_options['arguments']['field_pub_title_r_cul_path_value']['summary_options']['base_path'] = 'publication-expected-issues';
-  $handler->display->display_options['arguments']['field_pub_title_r_cul_path_value']['summary_options']['items_per_page'] = '25';
-  $handler->display->display_options['arguments']['field_pub_title_r_cul_path_value']['limit'] = '0';
-  $handler->display->display_options['displays'] = array(
-    'page' => 'page',
-    'page_1' => 'page_1',
-    'default' => 0,
-  );
-
-  /* Display: Contributor */
-  $handler = $view->new_display('page', 'Contributor', 'page_2');
-  $handler->display->display_options['display_description'] = 'Display for the Contributors';
-  $handler->display->display_options['defaults']['style_plugin'] = FALSE;
-  $handler->display->display_options['style_plugin'] = 'table';
-  $handler->display->display_options['style_options']['columns'] = array(
-    'nid' => 'nid',
-    'field_pub_expected_issue_date_1' => 'field_pub_expected_issue_date_1',
-    'nid_1' => 'nid_1',
-    'field_pub_expected_issue_date' => 'field_pub_expected_issue_date',
-    'field_expected_issue_lookup' => 'field_expected_issue_lookup',
-  );
-  $handler->display->display_options['style_options']['default'] = '-1';
-  $handler->display->display_options['style_options']['info'] = array(
-    'nid' => array(
-      'sortable' => 0,
-      'default_sort_order' => 'asc',
-      'align' => '',
-      'separator' => '',
-      'empty_column' => 0,
-    ),
-    'field_pub_expected_issue_date_1' => array(
-      'align' => '',
-      'separator' => '',
-      'empty_column' => 0,
-    ),
-    'nid_1' => array(
-      'sortable' => 0,
-      'default_sort_order' => 'asc',
-      'align' => '',
-      'separator' => '',
-      'empty_column' => 0,
-    ),
-    'field_pub_expected_issue_date' => array(
-      'align' => '',
-      'separator' => '',
-      'empty_column' => 0,
-    ),
-    'field_expected_issue_lookup' => array(
-      'sortable' => 0,
-      'default_sort_order' => 'asc',
-      'align' => '',
-      'separator' => '',
-      'empty_column' => 0,
-    ),
-  );
-  $handler->display->display_options['defaults']['style_options'] = FALSE;
-  $handler->display->display_options['defaults']['row_plugin'] = FALSE;
-  $handler->display->display_options['defaults']['row_options'] = FALSE;
-  $handler->display->display_options['defaults']['fields'] = FALSE;
-  /* Field: Content: Nid */
-  $handler->display->display_options['fields']['nid']['id'] = 'nid';
-  $handler->display->display_options['fields']['nid']['table'] = 'node';
-  $handler->display->display_options['fields']['nid']['field'] = 'nid';
-  $handler->display->display_options['fields']['nid']['relationship'] = 'field_publication_ent_reference_target_id';
-  $handler->display->display_options['fields']['nid']['label'] = 'Publication Nid';
-  $handler->display->display_options['fields']['nid']['exclude'] = TRUE;
-  /* Field: Content: Title */
-  $handler->display->display_options['fields']['title']['id'] = 'title';
-  $handler->display->display_options['fields']['title']['table'] = 'node';
-  $handler->display->display_options['fields']['title']['field'] = 'title';
-  $handler->display->display_options['fields']['title']['relationship'] = 'field_publication_ent_reference_target_id';
-  $handler->display->display_options['fields']['title']['link_to_node'] = FALSE;
-  /* Field: Content: Publication Expected Issue Date */
-  $handler->display->display_options['fields']['field_pub_expected_issue_date_1']['id'] = 'field_pub_expected_issue_date_1';
-  $handler->display->display_options['fields']['field_pub_expected_issue_date_1']['table'] = 'field_data_field_pub_expected_issue_date';
-  $handler->display->display_options['fields']['field_pub_expected_issue_date_1']['field'] = 'field_pub_expected_issue_date';
-  $handler->display->display_options['fields']['field_pub_expected_issue_date_1']['label'] = 'Expected Issue';
-  $handler->display->display_options['fields']['field_pub_expected_issue_date_1']['settings'] = array(
-    'format_type' => 'short',
-    'fromto' => 'value',
-    'multiple_number' => '1',
-    'multiple_from' => '',
-    'multiple_to' => '',
-    'show_repeat_rule' => 'hide',
-  );
-  $handler->display->display_options['fields']['field_pub_expected_issue_date_1']['delta_offset'] = '0';
-  /* Field: Content: Nid */
-  $handler->display->display_options['fields']['nid_1']['id'] = 'nid_1';
-  $handler->display->display_options['fields']['nid_1']['table'] = 'node';
-  $handler->display->display_options['fields']['nid_1']['field'] = 'nid';
-  $handler->display->display_options['fields']['nid_1']['label'] = 'Expected Issue Nid';
-  $handler->display->display_options['fields']['nid_1']['exclude'] = TRUE;
-  /* Field: Content: Expected Issue Lookup */
-  $handler->display->display_options['fields']['field_expected_issue_lookup']['id'] = 'field_expected_issue_lookup';
-  $handler->display->display_options['fields']['field_expected_issue_lookup']['table'] = 'field_data_field_expected_issue_lookup';
-  $handler->display->display_options['fields']['field_expected_issue_lookup']['field'] = 'field_expected_issue_lookup';
-  $handler->display->display_options['fields']['field_expected_issue_lookup']['label'] = 'Found Issue';
-  $handler->display->display_options['fields']['field_expected_issue_lookup']['exclude'] = TRUE;
-  $handler->display->display_options['fields']['field_expected_issue_lookup']['alter']['alter_text'] = TRUE;
-  $handler->display->display_options['fields']['field_expected_issue_lookup']['alter']['text'] = 'See Issue';
-  $handler->display->display_options['fields']['field_expected_issue_lookup']['alter']['make_link'] = TRUE;
-  $handler->display->display_options['fields']['field_expected_issue_lookup']['alter']['path'] = 'node/[field_expected_issue_lookup-value]';
-  $handler->display->display_options['fields']['field_expected_issue_lookup']['hide_empty'] = TRUE;
-  $handler->display->display_options['fields']['field_expected_issue_lookup']['empty_zero'] = TRUE;
-  /* Field: Global: Custom text */
-  $handler->display->display_options['fields']['nothing']['id'] = 'nothing';
-  $handler->display->display_options['fields']['nothing']['table'] = 'views';
-  $handler->display->display_options['fields']['nothing']['field'] = 'nothing';
-  $handler->display->display_options['fields']['nothing']['label'] = 'Upload Issue Link';
-  $handler->display->display_options['fields']['nothing']['alter']['text'] = 'Upload Issue';
-  $handler->display->display_options['fields']['nothing']['alter']['make_link'] = TRUE;
-  $handler->display->display_options['fields']['nothing']['alter']['path'] = 'node/add/publication-issue/?field_pub_issue_pub=[nid]&edit[field_pub_issue_date][und][0][value][date]=[field_pub_expected_issue_date_1]';
-  $handler->display->display_options['fields']['nothing']['alter']['alt'] = 'Upload the [field_pub_expected_issue_date_1] issue of [title]';
-  $handler->display->display_options['defaults']['arguments'] = FALSE;
-  /* Contextual filter: Content: Uploader (field_pub_uploader) */
-  $handler->display->display_options['arguments']['field_pub_uploader_uid']['id'] = 'field_pub_uploader_uid';
-  $handler->display->display_options['arguments']['field_pub_uploader_uid']['table'] = 'field_data_field_pub_uploader';
-  $handler->display->display_options['arguments']['field_pub_uploader_uid']['field'] = 'field_pub_uploader_uid';
-  $handler->display->display_options['arguments']['field_pub_uploader_uid']['relationship'] = 'field_publication_ent_reference_target_id';
-  $handler->display->display_options['arguments']['field_pub_uploader_uid']['default_action'] = 'default';
-  $handler->display->display_options['arguments']['field_pub_uploader_uid']['default_argument_type'] = 'current_user';
-  $handler->display->display_options['arguments']['field_pub_uploader_uid']['summary']['number_of_records'] = '0';
-  $handler->display->display_options['arguments']['field_pub_uploader_uid']['summary']['format'] = 'default_summary';
-  $handler->display->display_options['arguments']['field_pub_uploader_uid']['summary_options']['items_per_page'] = '25';
-  $handler->display->display_options['defaults']['filter_groups'] = FALSE;
-  $handler->display->display_options['defaults']['filters'] = FALSE;
-  /* Filter criterion: Content: Published */
-  $handler->display->display_options['filters']['status']['id'] = 'status';
-  $handler->display->display_options['filters']['status']['table'] = 'node';
-  $handler->display->display_options['filters']['status']['field'] = 'status';
-  $handler->display->display_options['filters']['status']['value'] = 1;
-  $handler->display->display_options['filters']['status']['group'] = 1;
-  $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
-  /* Filter criterion: Content: Type */
-  $handler->display->display_options['filters']['type']['id'] = 'type';
-  $handler->display->display_options['filters']['type']['table'] = 'node';
-  $handler->display->display_options['filters']['type']['field'] = 'type';
-  $handler->display->display_options['filters']['type']['value'] = array(
-    'publication_expected_issue' => 'publication_expected_issue',
-  );
-  $handler->display->display_options['filters']['type']['group'] = 1;
-  /* Filter criterion: Content: Expected Issue Lookup (field_expected_issue_lookup) */
-  $handler->display->display_options['filters']['field_expected_issue_lookup_value']['id'] = 'field_expected_issue_lookup_value';
-  $handler->display->display_options['filters']['field_expected_issue_lookup_value']['table'] = 'field_data_field_expected_issue_lookup';
-  $handler->display->display_options['filters']['field_expected_issue_lookup_value']['field'] = 'field_expected_issue_lookup_value';
-  $handler->display->display_options['filters']['field_expected_issue_lookup_value']['value']['value'] = '0';
-  $handler->display->display_options['filters']['field_expected_issue_lookup_value']['group'] = 1;
-  $handler->display->display_options['path'] = 'contributor-expected-issues';
-  $export['publication_expected_issues'] = $view;
-
-  $view = new view();
-  $view->name = 'publication_expected_issues_create';
-  $view->description = '';
-  $view->tag = 'v2';
-  $view->base_table = 'node';
-  $view->human_name = 'Publication Expected Issues Create';
-  $view->core = 7;
-  $view->api_version = '3.0';
-  $view->disabled = FALSE; /* Edit this to true to make a default view disabled initially */
-
-  /* Display: Master */
-  $handler = $view->new_display('default', 'Master', 'default');
-  $handler->display->display_options['title'] = 'Publication Expected Issues Create';
-  $handler->display->display_options['use_more_always'] = FALSE;
-  $handler->display->display_options['access']['type'] = 'role';
-  $handler->display->display_options['access']['role'] = array(
-    30037204 => '30037204',
-    117318317 => '117318317',
-  );
-  $handler->display->display_options['cache']['type'] = 'none';
-  $handler->display->display_options['query']['type'] = 'views_query';
-  $handler->display->display_options['exposed_form']['type'] = 'basic';
-  $handler->display->display_options['pager']['type'] = 'full';
-  $handler->display->display_options['pager']['options']['items_per_page'] = '20';
-  $handler->display->display_options['pager']['options']['offset'] = '0';
-  $handler->display->display_options['pager']['options']['id'] = '0';
-  $handler->display->display_options['pager']['options']['quantity'] = '9';
-  $handler->display->display_options['style_plugin'] = 'table';
-  $handler->display->display_options['style_options']['columns'] = array(
-    'title' => 'title',
-    'nid' => 'nid',
-    'nothing' => 'nothing',
-  );
-  $handler->display->display_options['style_options']['default'] = 'title';
-  $handler->display->display_options['style_options']['info'] = array(
-    'title' => array(
-      'sortable' => 1,
-      'default_sort_order' => 'asc',
-      'align' => '',
-      'separator' => '',
-      'empty_column' => 0,
-    ),
-    'nid' => array(
-      'sortable' => 0,
-      'default_sort_order' => 'asc',
-      'align' => '',
-      'separator' => '',
-      'empty_column' => 0,
-    ),
-    'nothing' => array(
-      'align' => '',
-      'separator' => '',
-      'empty_column' => 0,
-    ),
-  );
-  /* Field: Content: Title */
-  $handler->display->display_options['fields']['title']['id'] = 'title';
-  $handler->display->display_options['fields']['title']['table'] = 'node';
-  $handler->display->display_options['fields']['title']['field'] = 'title';
-  $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
-  $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
-  /* Field: Content: Nid */
-  $handler->display->display_options['fields']['nid']['id'] = 'nid';
-  $handler->display->display_options['fields']['nid']['table'] = 'node';
-  $handler->display->display_options['fields']['nid']['field'] = 'nid';
-  $handler->display->display_options['fields']['nid']['exclude'] = TRUE;
-  /* Field: Global: Custom text */
-  $handler->display->display_options['fields']['nothing']['id'] = 'nothing';
-  $handler->display->display_options['fields']['nothing']['table'] = 'views';
-  $handler->display->display_options['fields']['nothing']['field'] = 'nothing';
-  $handler->display->display_options['fields']['nothing']['label'] = '';
-  $handler->display->display_options['fields']['nothing']['alter']['text'] = 'Add Expected Issues';
-  $handler->display->display_options['fields']['nothing']['alter']['make_link'] = TRUE;
-  $handler->display->display_options['fields']['nothing']['alter']['path'] = 'node/add/publication-expected-issue/?field_publication_ent_reference=[nid]&edit[field_pub_expected_issue_date][und][0][show_todate]=0&edit[field_pub_expected_issue_date][und][0][show_repeat_settings]=1';
-  $handler->display->display_options['fields']['nothing']['alter']['alt'] = 'Add expected issues for [title]';
-  $handler->display->display_options['fields']['nothing']['element_label_colon'] = FALSE;
-  /* Sort criterion: Content: Title */
-  $handler->display->display_options['sorts']['title']['id'] = 'title';
-  $handler->display->display_options['sorts']['title']['table'] = 'node';
-  $handler->display->display_options['sorts']['title']['field'] = 'title';
-  /* Filter criterion: Content: Published */
-  $handler->display->display_options['filters']['status']['id'] = 'status';
-  $handler->display->display_options['filters']['status']['table'] = 'node';
-  $handler->display->display_options['filters']['status']['field'] = 'status';
-  $handler->display->display_options['filters']['status']['value'] = 1;
-  $handler->display->display_options['filters']['status']['group'] = 1;
-  $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
-  /* Filter criterion: Content: Type */
-  $handler->display->display_options['filters']['type']['id'] = 'type';
-  $handler->display->display_options['filters']['type']['table'] = 'node';
-  $handler->display->display_options['filters']['type']['field'] = 'type';
-  $handler->display->display_options['filters']['type']['value'] = array(
-    'publication' => 'publication',
-  );
-
-  /* Display: Page */
-  $handler = $view->new_display('page', 'Page', 'page');
-  $handler->display->display_options['path'] = 'publication-expected-issues-create';
-  $export['publication_expected_issues_create'] = $view;
 
   $view = new view();
   $view->name = 'publication_issue_documents';
@@ -3351,25 +2634,6 @@ function seapapers_feature_views_default_views() {
   $handler->display->display_options['filters']['field_pub_issue_document_fid']['field'] = 'field_pub_issue_document_fid';
   $handler->display->display_options['filters']['field_pub_issue_document_fid']['operator'] = 'not empty';
   $handler->display->display_options['filters']['field_pub_issue_document_fid']['group'] = 1;
-  /* Filter criterion: Content: Publication Date (field_pub_issue_date) */
-  $handler->display->display_options['filters']['field_pub_issue_date_value']['id'] = 'field_pub_issue_date_value';
-  $handler->display->display_options['filters']['field_pub_issue_date_value']['table'] = 'field_data_field_pub_issue_date';
-  $handler->display->display_options['filters']['field_pub_issue_date_value']['field'] = 'field_pub_issue_date_value';
-  $handler->display->display_options['filters']['field_pub_issue_date_value']['group'] = 1;
-  $handler->display->display_options['filters']['field_pub_issue_date_value']['exposed'] = TRUE;
-  $handler->display->display_options['filters']['field_pub_issue_date_value']['expose']['operator_id'] = 'field_pub_issue_date_value_op';
-  $handler->display->display_options['filters']['field_pub_issue_date_value']['expose']['label'] = 'Publication Date';
-  $handler->display->display_options['filters']['field_pub_issue_date_value']['expose']['operator'] = 'field_pub_issue_date_value_op';
-  $handler->display->display_options['filters']['field_pub_issue_date_value']['expose']['identifier'] = 'field_pub_issue_date_value';
-  $handler->display->display_options['filters']['field_pub_issue_date_value']['expose']['remember_roles'] = array(
-    2 => '2',
-    5 => 0,
-    1 => 0,
-    3 => 0,
-    4 => 0,
-    6 => 0,
-    7 => 0,
-  );
 
   /* Display: Page */
   $handler = $view->new_display('page', 'Page', 'page');
@@ -3387,6 +2651,7 @@ function seapapers_feature_views_default_views() {
   /* Display: Attachment */
   $handler = $view->new_display('attachment', 'Attachment', 'attachment_1');
   $handler->display->display_options['defaults']['title'] = FALSE;
+  $handler->display->display_options['enabled'] = FALSE;
   $handler->display->display_options['pager']['type'] = 'some';
   $handler->display->display_options['pager']['options']['items_per_page'] = '1';
   $handler->display->display_options['pager']['options']['offset'] = '0';
@@ -3401,8 +2666,8 @@ function seapapers_feature_views_default_views() {
   $handler->display->display_options['fields']['title']['id'] = 'title';
   $handler->display->display_options['fields']['title']['table'] = 'node';
   $handler->display->display_options['fields']['title']['field'] = 'title';
-  $handler->display->display_options['fields']['title']['relationship'] = 'field_issue_publication_target_id';
   $handler->display->display_options['fields']['title']['label'] = '';
+  $handler->display->display_options['fields']['title']['exclude'] = TRUE;
   $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
   $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
   $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
