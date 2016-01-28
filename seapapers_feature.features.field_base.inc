@@ -166,39 +166,6 @@ function seapapers_feature_field_default_field_bases() {
     'type' => 'text_long',
   );
 
-  // Exported field_base: 'field_expected_issue_lookup'.
-  $field_bases['field_expected_issue_lookup'] = array(
-    'active' => 1,
-    'cardinality' => 1,
-    'deleted' => 0,
-    'entity_types' => array(),
-    'field_name' => 'field_expected_issue_lookup',
-    'indexes' => array(
-      'value' => array(
-        0 => 'value',
-      ),
-    ),
-    'locked' => 0,
-    'module' => 'computed_field',
-    'settings' => array(
-      'code' => '$entity_field[0][\'value\'] = "";',
-      'database' => array(
-        'data_default' => '',
-        'data_index' => 1,
-        'data_length' => 32,
-        'data_not_NULL' => 0,
-        'data_precision' => 10,
-        'data_scale' => 2,
-        'data_size' => 'big',
-        'data_type' => 'int',
-      ),
-      'display_format' => '$display_output = $entity_field_item[\'value\'];',
-      'store' => 1,
-    ),
-    'translatable' => 0,
-    'type' => 'computed',
-  );
-
   // Exported field_base: 'field_pub_editor'.
   $field_bases['field_pub_editor'] = array(
     'active' => 1,
@@ -236,36 +203,6 @@ function seapapers_feature_field_default_field_bases() {
     ),
     'translatable' => 0,
     'type' => 'user_reference',
-  );
-
-  // Exported field_base: 'field_pub_expected_issue_date'.
-  $field_bases['field_pub_expected_issue_date'] = array(
-    'active' => 1,
-    'cardinality' => -1,
-    'deleted' => 0,
-    'entity_types' => array(),
-    'field_name' => 'field_pub_expected_issue_date',
-    'indexes' => array(),
-    'locked' => 0,
-    'module' => 'date',
-    'settings' => array(
-      'cache_count' => 4,
-      'cache_enabled' => 0,
-      'granularity' => array(
-        'day' => 'day',
-        'hour' => 0,
-        'minute' => 0,
-        'month' => 'month',
-        'second' => 0,
-        'year' => 'year',
-      ),
-      'repeat' => 1,
-      'timezone_db' => '',
-      'todate' => 'optional',
-      'tz_handling' => 'none',
-    ),
-    'translatable' => 0,
-    'type' => 'datetime',
   );
 
   // Exported field_base: 'field_pub_frequency'.
@@ -418,6 +355,7 @@ function seapapers_feature_field_default_field_bases() {
         'data_type' => 'varchar',
       ),
       'display_format' => '$display_output = $entity_field_item[\'value\'];',
+      'recalculate' => FALSE,
       'store' => 1,
     ),
     'translatable' => 0,
@@ -527,6 +465,7 @@ function seapapers_feature_field_default_field_bases() {
         'data_type' => 'varchar',
       ),
       'display_format' => '$display_output = $entity_field_item[\'value\'];',
+      'recalculate' => FALSE,
       'store' => 1,
     ),
     'translatable' => 0,
@@ -577,6 +516,7 @@ function seapapers_feature_field_default_field_bases() {
         'data_type' => 'varchar',
       ),
       'display_format' => '$display_output = $entity_field_item[\'value\'];',
+      'recalculate' => FALSE,
       'store' => 1,
     ),
     'translatable' => 0,
