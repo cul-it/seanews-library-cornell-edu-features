@@ -90,46 +90,6 @@ function seapapers_feature_menu_default_menu_links() {
     'weight' => -48,
     'customized' => 1,
   );
-  // Exported menu link: menu-contributor-tools_upload-any-issue:publications-I-upload.
-  $menu_links['menu-contributor-tools_upload-any-issue:publications-I-upload'] = array(
-    'menu_name' => 'menu-contributor-tools',
-    'link_path' => 'publications-I-upload',
-    'router_path' => 'publications-I-upload',
-    'link_title' => 'Upload Any Issue',
-    'options' => array(
-      'attributes' => array(
-        'title' => 'Upload issues to any publication you have permission to upload to. Provides default publication but not date.',
-      ),
-      'identifier' => 'menu-contributor-tools_upload-any-issue:publications-I-upload',
-    ),
-    'module' => 'menu',
-    'hidden' => 0,
-    'external' => 0,
-    'has_children' => 0,
-    'expanded' => 0,
-    'weight' => -49,
-    'customized' => 1,
-  );
-  // Exported menu link: menu-contributor-tools_upload-expected-issues:contributor-expected-issues.
-  $menu_links['menu-contributor-tools_upload-expected-issues:contributor-expected-issues'] = array(
-    'menu_name' => 'menu-contributor-tools',
-    'link_path' => 'contributor-expected-issues',
-    'router_path' => 'contributor-expected-issues',
-    'link_title' => 'Upload Expected Issues',
-    'options' => array(
-      'attributes' => array(
-        'title' => 'Upload issues we\'re expecting. Provides default publication and date.',
-      ),
-      'identifier' => 'menu-contributor-tools_upload-expected-issues:contributor-expected-issues',
-    ),
-    'module' => 'menu',
-    'hidden' => 0,
-    'external' => 0,
-    'has_children' => 0,
-    'expanded' => 0,
-    'weight' => -50,
-    'customized' => 1,
-  );
   // Exported menu link: menu-editor-tools_my-expected-issues:editor-expected-issues.
   $menu_links['menu-editor-tools_my-expected-issues:editor-expected-issues'] = array(
     'menu_name' => 'menu-editor-tools',
@@ -170,26 +130,6 @@ function seapapers_feature_menu_default_menu_links() {
     'weight' => 0,
     'customized' => 1,
   );
-  // Exported menu link: menu-editorial-director-tools_add-new-expected-issues:publication-expected-issues-create.
-  $menu_links['menu-editorial-director-tools_add-new-expected-issues:publication-expected-issues-create'] = array(
-    'menu_name' => 'menu-editorial-director-tools',
-    'link_path' => 'publication-expected-issues-create',
-    'router_path' => 'publication-expected-issues-create',
-    'link_title' => 'Add New Expected Issues',
-    'options' => array(
-      'attributes' => array(
-        'title' => '',
-      ),
-      'identifier' => 'menu-editorial-director-tools_add-new-expected-issues:publication-expected-issues-create',
-    ),
-    'module' => 'menu',
-    'hidden' => 0,
-    'external' => 0,
-    'has_children' => 0,
-    'expanded' => 0,
-    'weight' => -47,
-    'customized' => 1,
-  );
   // Exported menu link: menu-editorial-director-tools_all-publications:editorial-director-publications.
   $menu_links['menu-editorial-director-tools_all-publications:editorial-director-publications'] = array(
     'menu_name' => 'menu-editorial-director-tools',
@@ -228,26 +168,6 @@ function seapapers_feature_menu_default_menu_links() {
     'has_children' => 0,
     'expanded' => 0,
     'weight' => -49,
-    'customized' => 1,
-  );
-  // Exported menu link: menu-editorial-director-tools_expected-issues:publication-expected-issues.
-  $menu_links['menu-editorial-director-tools_expected-issues:publication-expected-issues'] = array(
-    'menu_name' => 'menu-editorial-director-tools',
-    'link_path' => 'publication-expected-issues',
-    'router_path' => 'publication-expected-issues',
-    'link_title' => 'Expected Issues',
-    'options' => array(
-      'attributes' => array(
-        'title' => 'Expected Issues for publications',
-      ),
-      'identifier' => 'menu-editorial-director-tools_expected-issues:publication-expected-issues',
-    ),
-    'module' => 'menu',
-    'hidden' => 0,
-    'external' => 0,
-    'has_children' => 0,
-    'expanded' => 0,
-    'weight' => -48,
     'customized' => 1,
   );
   // Exported menu link: menu-new-tools_browse-issues-by-publication:subscriber-publications.
@@ -313,20 +233,16 @@ function seapapers_feature_menu_default_menu_links() {
 
   // Translatables
   // Included for use with string extractors like potx.
-  t('Add New Expected Issues');
   t('All Publications');
   t('Browse Issues by Publication');
   t('Contact');
   t('Create new publication');
-  t('Expected Issues');
   t('Home');
   t('My Expected Issues');
   t('My Publications');
   t('My Uploads');
   t('Publications');
   t('Search');
-  t('Upload Any Issue');
-  t('Upload Expected Issues');
 
   return $menu_links;
 }
