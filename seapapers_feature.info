@@ -31,6 +31,7 @@ dependencies[] = strongarm
 dependencies[] = taxonomy
 dependencies[] = text
 dependencies[] = user_reference
+dependencies[] = uuid
 dependencies[] = uuid_features
 dependencies[] = views
 dependencies[] = views_bulk_operations
