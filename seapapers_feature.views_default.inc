@@ -484,6 +484,7 @@ function seapapers_feature_views_default_views() {
     'edit_node' => 'edit_node',
     'title' => 'title',
     'changed' => 'changed',
+    'views_bulk_operations' => 'views_bulk_operations',
   );
   $handler->display->display_options['style_options']['default'] = '-1';
   $handler->display->display_options['style_options']['info'] = array(
@@ -493,15 +494,20 @@ function seapapers_feature_views_default_views() {
       'empty_column' => 0,
     ),
     'title' => array(
-      'sortable' => 0,
+      'sortable' => 1,
       'default_sort_order' => 'asc',
       'align' => '',
       'separator' => '',
       'empty_column' => 0,
     ),
     'changed' => array(
-      'sortable' => 0,
+      'sortable' => 1,
       'default_sort_order' => 'asc',
+      'align' => '',
+      'separator' => '',
+      'empty_column' => 0,
+    ),
+    'views_bulk_operations' => array(
       'align' => '',
       'separator' => '',
       'empty_column' => 0,
@@ -525,9 +531,17 @@ function seapapers_feature_views_default_views() {
   $handler->display->display_options['fields']['views_bulk_operations']['field'] = 'views_bulk_operations';
   $handler->display->display_options['fields']['views_bulk_operations']['vbo_settings']['display_type'] = '0';
   $handler->display->display_options['fields']['views_bulk_operations']['vbo_settings']['enable_select_all_pages'] = 1;
+  $handler->display->display_options['fields']['views_bulk_operations']['vbo_settings']['row_clickable'] = 1;
   $handler->display->display_options['fields']['views_bulk_operations']['vbo_settings']['force_single'] = 0;
   $handler->display->display_options['fields']['views_bulk_operations']['vbo_settings']['entity_load_capacity'] = '10';
   $handler->display->display_options['fields']['views_bulk_operations']['vbo_operations'] = array(
+    'action::views_bulk_operations_delete_item' => array(
+      'selected' => 1,
+      'postpone_processing' => 0,
+      'skip_confirmation' => 0,
+      'override_label' => 0,
+      'label' => '',
+    ),
     'action::views_bulk_operations_modify_action' => array(
       'selected' => 1,
       'postpone_processing' => 0,
@@ -2089,20 +2103,12 @@ function seapapers_feature_views_default_views() {
   $handler->display->display_options['fields']['title']['relationship'] = 'field_publication_ent_reference_target_id';
   $handler->display->display_options['fields']['title']['exclude'] = TRUE;
   $handler->display->display_options['fields']['title']['link_to_node'] = FALSE;
-  /* Field: Content: Publication Expected Issue Date */
-  $handler->display->display_options['fields']['field_pub_expected_issue_date_1']['id'] = 'field_pub_expected_issue_date_1';
-  $handler->display->display_options['fields']['field_pub_expected_issue_date_1']['table'] = 'field_data_field_pub_expected_issue_date';
-  $handler->display->display_options['fields']['field_pub_expected_issue_date_1']['field'] = 'field_pub_expected_issue_date';
-  $handler->display->display_options['fields']['field_pub_expected_issue_date_1']['label'] = 'Expected Issue';
-  $handler->display->display_options['fields']['field_pub_expected_issue_date_1']['settings'] = array(
-    'format_type' => 'short',
-    'fromto' => 'value',
-    'multiple_number' => '1',
-    'multiple_from' => '',
-    'multiple_to' => '',
-    'show_repeat_rule' => 'hide',
-  );
-  $handler->display->display_options['fields']['field_pub_expected_issue_date_1']['delta_offset'] = '0';
+  /* Field: Content: Title - CUL Pathname */
+  $handler->display->display_options['fields']['field_pub_title_r_cul_path']['id'] = 'field_pub_title_r_cul_path';
+  $handler->display->display_options['fields']['field_pub_title_r_cul_path']['table'] = 'field_data_field_pub_title_r_cul_path';
+  $handler->display->display_options['fields']['field_pub_title_r_cul_path']['field'] = 'field_pub_title_r_cul_path';
+  $handler->display->display_options['fields']['field_pub_title_r_cul_path']['relationship'] = 'field_publication_ent_reference_target_id';
+  $handler->display->display_options['fields']['field_pub_title_r_cul_path']['exclude'] = TRUE;
   /* Field: Content: Nid */
   $handler->display->display_options['fields']['nid_1']['id'] = 'nid_1';
   $handler->display->display_options['fields']['nid_1']['table'] = 'node';
@@ -2120,6 +2126,36 @@ function seapapers_feature_views_default_views() {
   $handler->display->display_options['fields']['field_expected_issue_lookup']['alter']['path'] = 'node/[field_expected_issue_lookup-value]';
   $handler->display->display_options['fields']['field_expected_issue_lookup']['hide_empty'] = TRUE;
   $handler->display->display_options['fields']['field_expected_issue_lookup']['empty_zero'] = TRUE;
+  /* Field: Content: Publication Expected Issue Date */
+  $handler->display->display_options['fields']['field_pub_expected_issue_date_1']['id'] = 'field_pub_expected_issue_date_1';
+  $handler->display->display_options['fields']['field_pub_expected_issue_date_1']['table'] = 'field_data_field_pub_expected_issue_date';
+  $handler->display->display_options['fields']['field_pub_expected_issue_date_1']['field'] = 'field_pub_expected_issue_date';
+  $handler->display->display_options['fields']['field_pub_expected_issue_date_1']['label'] = 'Expected Issue';
+  $handler->display->display_options['fields']['field_pub_expected_issue_date_1']['settings'] = array(
+    'format_type' => 'yyyy_mm_dd',
+    'fromto' => 'value',
+    'multiple_number' => '1',
+    'multiple_from' => '',
+    'multiple_to' => '',
+    'show_remaining_days' => 0,
+    'show_repeat_rule' => 'hide',
+  );
+  $handler->display->display_options['fields']['field_pub_expected_issue_date_1']['delta_offset'] = '0';
+  /* Field: Content: Publication Expected Issue Date */
+  $handler->display->display_options['fields']['field_pub_expected_issue_date']['id'] = 'field_pub_expected_issue_date';
+  $handler->display->display_options['fields']['field_pub_expected_issue_date']['table'] = 'field_data_field_pub_expected_issue_date';
+  $handler->display->display_options['fields']['field_pub_expected_issue_date']['field'] = 'field_pub_expected_issue_date';
+  $handler->display->display_options['fields']['field_pub_expected_issue_date']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_pub_expected_issue_date']['settings'] = array(
+    'format_type' => 'yyyy_m_d',
+    'fromto' => 'value',
+    'multiple_number' => '',
+    'multiple_from' => '',
+    'multiple_to' => '',
+    'show_remaining_days' => 0,
+    'show_repeat_rule' => 'hide',
+  );
+  $handler->display->display_options['fields']['field_pub_expected_issue_date']['delta_offset'] = '0';
   /* Field: Global: Custom text */
   $handler->display->display_options['fields']['nothing']['id'] = 'nothing';
   $handler->display->display_options['fields']['nothing']['table'] = 'views';
@@ -2127,7 +2163,7 @@ function seapapers_feature_views_default_views() {
   $handler->display->display_options['fields']['nothing']['label'] = 'Upload Issue Link';
   $handler->display->display_options['fields']['nothing']['alter']['text'] = 'Upload Issue';
   $handler->display->display_options['fields']['nothing']['alter']['make_link'] = TRUE;
-  $handler->display->display_options['fields']['nothing']['alter']['path'] = 'node/add/publication-issue/?field_pub_issue_pub=[nid]&edit[field_pub_issue_date][und][0][value][date]=[field_pub_expected_issue_date_1]';
+  $handler->display->display_options['fields']['nothing']['alter']['path'] = 'node/add/publication-issue/[field_pub_title_r_cul_path]/[field_pub_expected_issue_date_1]?field_pub_issue_pub=[nid]&edit[field_pub_issue_date][und][0][value][date]=[field_pub_expected_issue_date]';
   $handler->display->display_options['fields']['nothing']['alter']['alt'] = 'Upload the [field_pub_expected_issue_date_1] issue of [title]';
   $handler->display->display_options['path'] = 'publication-expected-issues';
 
@@ -3351,25 +3387,6 @@ function seapapers_feature_views_default_views() {
   $handler->display->display_options['filters']['field_pub_issue_document_fid']['field'] = 'field_pub_issue_document_fid';
   $handler->display->display_options['filters']['field_pub_issue_document_fid']['operator'] = 'not empty';
   $handler->display->display_options['filters']['field_pub_issue_document_fid']['group'] = 1;
-  /* Filter criterion: Content: Publication Date (field_pub_issue_date) */
-  $handler->display->display_options['filters']['field_pub_issue_date_value']['id'] = 'field_pub_issue_date_value';
-  $handler->display->display_options['filters']['field_pub_issue_date_value']['table'] = 'field_data_field_pub_issue_date';
-  $handler->display->display_options['filters']['field_pub_issue_date_value']['field'] = 'field_pub_issue_date_value';
-  $handler->display->display_options['filters']['field_pub_issue_date_value']['group'] = 1;
-  $handler->display->display_options['filters']['field_pub_issue_date_value']['exposed'] = TRUE;
-  $handler->display->display_options['filters']['field_pub_issue_date_value']['expose']['operator_id'] = 'field_pub_issue_date_value_op';
-  $handler->display->display_options['filters']['field_pub_issue_date_value']['expose']['label'] = 'Publication Date';
-  $handler->display->display_options['filters']['field_pub_issue_date_value']['expose']['operator'] = 'field_pub_issue_date_value_op';
-  $handler->display->display_options['filters']['field_pub_issue_date_value']['expose']['identifier'] = 'field_pub_issue_date_value';
-  $handler->display->display_options['filters']['field_pub_issue_date_value']['expose']['remember_roles'] = array(
-    2 => '2',
-    5 => 0,
-    1 => 0,
-    3 => 0,
-    4 => 0,
-    6 => 0,
-    7 => 0,
-  );
 
   /* Display: Page */
   $handler = $view->new_display('page', 'Page', 'page');
@@ -3387,6 +3404,7 @@ function seapapers_feature_views_default_views() {
   /* Display: Attachment */
   $handler = $view->new_display('attachment', 'Attachment', 'attachment_1');
   $handler->display->display_options['defaults']['title'] = FALSE;
+  $handler->display->display_options['enabled'] = FALSE;
   $handler->display->display_options['pager']['type'] = 'some';
   $handler->display->display_options['pager']['options']['items_per_page'] = '1';
   $handler->display->display_options['pager']['options']['offset'] = '0';
@@ -3401,8 +3419,8 @@ function seapapers_feature_views_default_views() {
   $handler->display->display_options['fields']['title']['id'] = 'title';
   $handler->display->display_options['fields']['title']['table'] = 'node';
   $handler->display->display_options['fields']['title']['field'] = 'title';
-  $handler->display->display_options['fields']['title']['relationship'] = 'field_issue_publication_target_id';
   $handler->display->display_options['fields']['title']['label'] = '';
+  $handler->display->display_options['fields']['title']['exclude'] = TRUE;
   $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
   $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
   $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;

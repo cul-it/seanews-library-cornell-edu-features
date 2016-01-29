@@ -849,6 +849,12 @@ function seapapers_feature_field_default_field_instances() {
         'type' => 'hidden',
         'weight' => 0,
       ),
+      'token' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
     ),
     'entity_type' => 'node',
     'field_name' => 'date_repeat_entity_clone_state',
@@ -893,6 +899,12 @@ function seapapers_feature_field_default_field_instances() {
         'type' => 'hidden',
         'weight' => 0,
       ),
+      'token' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
     ),
     'entity_type' => 'node',
     'field_name' => 'date_repeat_entity_master_uuid',
@@ -927,6 +939,12 @@ function seapapers_feature_field_default_field_instances() {
         'weight' => 5,
       ),
       'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'token' => array(
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
@@ -972,6 +990,12 @@ function seapapers_feature_field_default_field_instances() {
         'weight' => 0,
       ),
       'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'token' => array(
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
@@ -1026,6 +1050,12 @@ function seapapers_feature_field_default_field_instances() {
         'weight' => 6,
       ),
       'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'token' => array(
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
@@ -1087,7 +1117,19 @@ function seapapers_feature_field_default_field_instances() {
         'type' => 'date_default',
         'weight' => 1,
       ),
+      'search_index' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
       'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'token' => array(
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
@@ -1136,7 +1178,19 @@ function seapapers_feature_field_default_field_instances() {
         'type' => 'file_default',
         'weight' => 2,
       ),
+      'search_index' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
       'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'token' => array(
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
@@ -1196,7 +1250,19 @@ function seapapers_feature_field_default_field_instances() {
         'type' => 'entityreference_label',
         'weight' => 3,
       ),
+      'search_index' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
       'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'token' => array(
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
@@ -1249,7 +1315,19 @@ function seapapers_feature_field_default_field_instances() {
         'type' => 'computed_field_plain',
         'weight' => 4,
       ),
+      'search_index' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
       'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'token' => array(
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',

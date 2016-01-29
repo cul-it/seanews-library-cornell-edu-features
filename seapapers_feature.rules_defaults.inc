@@ -104,6 +104,7 @@ function seapapers_feature_default_rules_configuration() {
   $items['rules_prepare_newly_uploaded_publication_issues'] = entity_import('rules_config', '{ "rules_prepare_newly_uploaded_publication_issues" : {
       "LABEL" : "Prepare Newly Uploaded Publication Issues",
       "PLUGIN" : "reaction rule",
+      "ACTIVE" : false,
       "OWNER" : "rules",
       "TAGS" : [ "issues" ],
       "REQUIRES" : [ "rules", "seanews" ],
@@ -114,7 +115,6 @@ function seapapers_feature_default_rules_configuration() {
             "value" : "[node:field-pub-issue-pub:field_pub_title_r_cul] [node:field-pub-issue-date:custom:Y-m-d]"
           }
         },
-        { "seanews_action_node_save_publication_issue_move_file" : { "node" : [ "node" ] } },
         { "seanews_action_node_save_publication_issue_update_expected" : { "node" : [ "node" ] } }
       ]
     }
