@@ -1618,13 +1618,7 @@ function seapapers_feature_views_default_views() {
   $handler = $view->new_display('default', 'Master', 'default');
   $handler->display->display_options['title'] = 'My Issue Uploads';
   $handler->display->display_options['use_more_always'] = FALSE;
-  $handler->display->display_options['access']['type'] = 'role';
-  $handler->display->display_options['access']['role'] = array(
-    30037204 => '30037204',
-    188284353 => '188284353',
-    200153887 => '200153887',
-    227989135 => '227989135',
-  );
+  $handler->display->display_options['access']['type'] = 'perm';
   $handler->display->display_options['cache']['type'] = 'none';
   $handler->display->display_options['query']['type'] = 'views_query';
   $handler->display->display_options['exposed_form']['type'] = 'basic';
@@ -1658,11 +1652,6 @@ function seapapers_feature_views_default_views() {
       'empty_column' => 0,
     ),
   );
-  /* Relationship: Entity Reference: Referenced Entity */
-  $handler->display->display_options['relationships']['field_pub_issue_pub_target_id']['id'] = 'field_pub_issue_pub_target_id';
-  $handler->display->display_options['relationships']['field_pub_issue_pub_target_id']['table'] = 'field_data_field_pub_issue_pub';
-  $handler->display->display_options['relationships']['field_pub_issue_pub_target_id']['field'] = 'field_pub_issue_pub_target_id';
-  $handler->display->display_options['relationships']['field_pub_issue_pub_target_id']['label'] = 'Publication';
   /* Field: Content: Title */
   $handler->display->display_options['fields']['title']['id'] = 'title';
   $handler->display->display_options['fields']['title']['table'] = 'node';
@@ -1684,16 +1673,18 @@ function seapapers_feature_views_default_views() {
   $handler->display->display_options['sorts']['title']['id'] = 'title';
   $handler->display->display_options['sorts']['title']['table'] = 'node';
   $handler->display->display_options['sorts']['title']['field'] = 'title';
-  /* Contextual filter: Content: Uploader (field_pub_uploader) */
-  $handler->display->display_options['arguments']['field_pub_uploader_uid']['id'] = 'field_pub_uploader_uid';
-  $handler->display->display_options['arguments']['field_pub_uploader_uid']['table'] = 'field_data_field_pub_uploader';
-  $handler->display->display_options['arguments']['field_pub_uploader_uid']['field'] = 'field_pub_uploader_uid';
-  $handler->display->display_options['arguments']['field_pub_uploader_uid']['relationship'] = 'field_pub_issue_pub_target_id';
-  $handler->display->display_options['arguments']['field_pub_uploader_uid']['default_action'] = 'default';
-  $handler->display->display_options['arguments']['field_pub_uploader_uid']['default_argument_type'] = 'current_user';
-  $handler->display->display_options['arguments']['field_pub_uploader_uid']['summary']['number_of_records'] = '0';
-  $handler->display->display_options['arguments']['field_pub_uploader_uid']['summary']['format'] = 'default_summary';
-  $handler->display->display_options['arguments']['field_pub_uploader_uid']['summary_options']['items_per_page'] = '25';
+  /* Contextual filter: Content: Author uid */
+  $handler->display->display_options['arguments']['uid']['id'] = 'uid';
+  $handler->display->display_options['arguments']['uid']['table'] = 'node';
+  $handler->display->display_options['arguments']['uid']['field'] = 'uid';
+  $handler->display->display_options['arguments']['uid']['relationship'] = 'reverse_field_pub_issue_document_node';
+  $handler->display->display_options['arguments']['uid']['default_action'] = 'default';
+  $handler->display->display_options['arguments']['uid']['default_argument_type'] = 'current_user';
+  $handler->display->display_options['arguments']['uid']['summary']['number_of_records'] = '0';
+  $handler->display->display_options['arguments']['uid']['summary']['format'] = 'default_summary';
+  $handler->display->display_options['arguments']['uid']['summary_options']['items_per_page'] = '25';
+  $handler->display->display_options['arguments']['uid']['specify_validation'] = TRUE;
+  $handler->display->display_options['arguments']['uid']['validate']['type'] = 'user';
   /* Filter criterion: Content: Published */
   $handler->display->display_options['filters']['status']['id'] = 'status';
   $handler->display->display_options['filters']['status']['table'] = 'node';
