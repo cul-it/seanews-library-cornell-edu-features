@@ -17,13 +17,6 @@ function seapapers_feature_user_default_roles() {
     'machine_name' => 'contributor',
   );
 
-  // Exported role: Editor.
-  $roles['Editor'] = array(
-    'name' => 'Editor',
-    'weight' => 8,
-    'machine_name' => 'editor',
-  );
-
   // Exported role: Editorial Director.
   $roles['Editorial Director'] = array(
     'name' => 'Editorial Director',

@@ -70,6 +70,26 @@ function seapapers_feature_menu_default_menu_links() {
     'weight' => -49,
     'customized' => 1,
   );
+  // Exported menu link: menu-contributor-tools_add-issues:add-an-issue.
+  $menu_links['menu-contributor-tools_add-issues:add-an-issue'] = array(
+    'menu_name' => 'menu-contributor-tools',
+    'link_path' => 'add-an-issue',
+    'router_path' => 'add-an-issue',
+    'link_title' => 'Add Issues',
+    'options' => array(
+      'attributes' => array(
+        'title' => 'Upload an issue to one of your newspapers.',
+      ),
+      'identifier' => 'menu-contributor-tools_add-issues:add-an-issue',
+    ),
+    'module' => 'menu',
+    'hidden' => 0,
+    'external' => 0,
+    'has_children' => 0,
+    'expanded' => 0,
+    'weight' => 0,
+    'customized' => 1,
+  );
   // Exported menu link: menu-contributor-tools_my-uploads:my-issue-uploads.
   $menu_links['menu-contributor-tools_my-uploads:my-issue-uploads'] = array(
     'menu_name' => 'menu-contributor-tools',
@@ -88,46 +108,6 @@ function seapapers_feature_menu_default_menu_links() {
     'has_children' => 0,
     'expanded' => 0,
     'weight' => -48,
-    'customized' => 1,
-  );
-  // Exported menu link: menu-editor-tools_my-expected-issues:editor-expected-issues.
-  $menu_links['menu-editor-tools_my-expected-issues:editor-expected-issues'] = array(
-    'menu_name' => 'menu-editor-tools',
-    'link_path' => 'editor-expected-issues',
-    'router_path' => 'editor-expected-issues',
-    'link_title' => 'My Expected Issues',
-    'options' => array(
-      'attributes' => array(
-        'title' => 'List of issues that have not been uploaded yet.',
-      ),
-      'identifier' => 'menu-editor-tools_my-expected-issues:editor-expected-issues',
-    ),
-    'module' => 'menu',
-    'hidden' => 0,
-    'external' => 0,
-    'has_children' => 0,
-    'expanded' => 0,
-    'weight' => 0,
-    'customized' => 1,
-  );
-  // Exported menu link: menu-editor-tools_my-publications:editor-publications.
-  $menu_links['menu-editor-tools_my-publications:editor-publications'] = array(
-    'menu_name' => 'menu-editor-tools',
-    'link_path' => 'editor-publications',
-    'router_path' => 'editor-publications',
-    'link_title' => 'My Publications',
-    'options' => array(
-      'attributes' => array(
-        'title' => '',
-      ),
-      'identifier' => 'menu-editor-tools_my-publications:editor-publications',
-    ),
-    'module' => 'menu',
-    'hidden' => 0,
-    'external' => 0,
-    'has_children' => 0,
-    'expanded' => 0,
-    'weight' => 0,
     'customized' => 1,
   );
   // Exported menu link: menu-editorial-director-tools_all-publications:editorial-director-publications.

@@ -22,12 +22,6 @@ function seapapers_feature_menu_default_menu_custom() {
     'title' => 'Contributor Tools',
     'description' => 'Allows contributors to see their newspapers and the issues they have uploaded.',
   );
-  // Exported menu: menu-editor-tools.
-  $menus['menu-editor-tools'] = array(
-    'menu_name' => 'menu-editor-tools',
-    'title' => 'Editor Tools',
-    'description' => 'Allow Editors to see all the newspapers and all the issues that have been uploaded, and to assign contributors to newspapers.',
-  );
   // Exported menu: menu-editorial-director-tools.
   $menus['menu-editorial-director-tools'] = array(
     'menu_name' => 'menu-editorial-director-tools',
@@ -48,12 +42,10 @@ function seapapers_feature_menu_default_menu_custom() {
   );
   // Translatables
   // Included for use with string extractors like potx.
-  t('Allow Editors to see all the newspapers and all the issues that have been uploaded, and to assign contributors to newspapers.');
   t('Allow readers to select issues, read issues, and search issues for content.');
   t('Allows contributors to see their newspapers and the issues they have uploaded.');
   t('Contributor Tools');
   t('Create new publications, add subscribers, work with expected issues.');
-  t('Editor Tools');
   t('Editorial Director Tools');
   t('Main menu');
   t('Menu for things a subscriber can do.');
