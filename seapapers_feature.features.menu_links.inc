@@ -213,13 +213,12 @@ function seapapers_feature_menu_default_menu_links() {
 
   // Translatables
   // Included for use with string extractors like potx.
+  t('Add Issues');
   t('All Publications');
   t('Browse Issues by Publication');
   t('Contact');
   t('Create new publication');
   t('Home');
-  t('My Expected Issues');
-  t('My Publications');
   t('My Uploads');
   t('Publications');
   t('Search');
