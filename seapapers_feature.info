@@ -132,6 +132,7 @@ features[menu_custom][] = menu-reader-tools
 features[menu_links][] = main-menu_contact:contact
 features[menu_links][] = main-menu_home:<front>
 features[menu_links][] = main-menu_publications:publications
+features[menu_links][] = menu-contributor-tools_add-issues:add-an-issue
 features[menu_links][] = menu-contributor-tools_my-uploads:my-issue-uploads
 features[menu_links][] = menu-editorial-director-tools_all-publications:editorial-director-publications
 features[menu_links][] = menu-editorial-director-tools_create-new-publication:node/add/publication
