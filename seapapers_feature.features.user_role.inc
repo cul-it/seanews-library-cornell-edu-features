@@ -10,6 +10,13 @@
 function seapapers_feature_user_default_roles() {
   $roles = array();
 
+  // Exported role: Allow Local Login.
+  $roles['Allow Local Login'] = array(
+    'name' => 'Allow Local Login',
+    'weight' => 4,
+    'machine_name' => 'allow_local_login',
+  );
+
   // Exported role: Contributor.
   $roles['Contributor'] = array(
     'name' => 'Contributor',
@@ -36,6 +43,20 @@ function seapapers_feature_user_default_roles() {
     'name' => 'Read All Papers All Issues',
     'weight' => 6,
     'machine_name' => 'read_all_papers_all_issues',
+  );
+
+  // Exported role: Timor Post Edit.
+  $roles['Timor Post Edit'] = array(
+    'name' => 'Timor Post Edit',
+    'weight' => 13,
+    'machine_name' => 'timor_post_edit',
+  );
+
+  // Exported role: Timor Post View.
+  $roles['Timor Post View'] = array(
+    'name' => 'Timor Post View',
+    'weight' => 12,
+    'machine_name' => 'timor_post_view',
   );
 
   // Exported role: publisher.
