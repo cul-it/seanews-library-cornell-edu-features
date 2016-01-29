@@ -691,11 +691,7 @@ function seapapers_feature_field_default_field_instances() {
   // Exported field_instance: 'node-publication-field_pub_uploader'.
   $field_instances['node-publication-field_pub_uploader'] = array(
     'bundle' => 'publication',
-    'default_value' => array(
-      0 => array(
-        'uid' => 1,
-      ),
-    ),
+    'default_value' => NULL,
     'deleted' => 0,
     'description' => '',
     'display' => array(
